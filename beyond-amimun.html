@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond AMIMUN - AMIMUN 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 31, 84, 0.9), rgba(0, 31, 84, 0.8)), url('images/hero-bg-2.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '›';
+            position: absolute;
+            right: -15px;
+            color: var(--accent-color);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .intro-section {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(18, 130, 162, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .speakers-section {
+            background: #f9f9f9;
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .section-title p {
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-item.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .timeline-item p {
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px !important;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">AMIMUN'26</a>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link active">About Us <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
+                        <li><a href="beyond-amimun.html" class="active">Beyond AMIMUN</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="index.html#team" class="nav-link">Our Team</a></li>
+                <li class="nav-item"><a href="index.html#committees" class="nav-link">Committees</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 style="color: white;">Beyond AMIMUN</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li>Beyond AMIMUN</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="intro-section">
+                <p>The Amity International Model United Nations Club is a student-centric body that allows us to provide a forum that will serve to engage with a transforming world and combine it with the ability to adapt that is integral to the Amity Vision as a bridge between delegates from various backgrounds, united in their ardor for debate and dialogue.</p>
+                <p>To do this, we have made it our responsibility to walk you through the preparation process, ensuring that all our delegates are well-versed in their particular agendas. AMIMUN is Amity University's only conference conceptualized, planned, and implemented by an independent student body.</p>
+                <p>We are the MUN Club of Amity University, a group of motivated and sincere students interested in the art of Diplomacy and the world of International Relations. We proudly represent the Amity International Model United Nations (AMIMUN) conference, one of the biggest MUNs in India, hosted and organized by Amity University. We work hard and train diligently to experience, exchange, negotiate, represent and learn all there is. Rich with practical experience and led by seasoned MUNers, we strive to bring out the best in each member of this club and promote the fundamental values of the United Nations. The talent is there, and the future is clear: We want to continue our MUN journey into the future with more experience and motivation and belief in our fellow young student diplomats.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" id="training">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Training Session</h3>
+                    <p>We train rigorously to continuously grow through our experiences, bettering our discussions and broadening our perspectives. We endeavor to encourage each member of this club to spare no effort and encapsulate the fundamental values of the United Nations. We at the AMIMUN club will continue to strive towards perfection and are proud to be at the forefront of this mission.</p>
+                </div>
+
+                <div class="feature-card" id="webinar">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Webinar Series</h3>
+                    <p>At AMIMUN Club, we are determined to build leadership, communication, debating, interpersonal, organizational and teamwork abilities among delegates. The webinar series was conducted by experienced MUNers and debaters. In the webinar series we aim to help students understand the diplomatic relations between nations on various stances and attempt to adapt to cognitive learning to enhance knowledge on fundamental social, political and economic issues. Further, helping them to grasp the importance of critical thinking skills and academic and intellectual competence and gain more self-confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="speakers-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Speakers And Guest In Previous Editions</h2>
+                <p>The novel theme at every edition of AMIMUN demonstrates that we have always been a platform that gives a voice to those who want to make a difference in the world, no matter where they come from.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" id="timeline1">
+                    <div class="timeline-content">
+                        <h3>Global Reach</h3>
+                        <p>AMIMUN has a history of adhering to themes that have depicted the then-global conditions and established a precedent for future editions. We have successfully carved out a niche in the international Model UN circuit and are proud to claim that we are one of the country's most prominent International MUN Conferences.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="timeline2">
+                    <div class="timeline-content">
+                        <h3>Cultural Exchange</h3>
+                        <p>At AMIMUN clubs and conferences, students interact with people worldwide. Delegates from different ethnicities socialize with each other, which exposes their intellect to some unique Cultures, Traditions and Languages. Moreover, students get to have some lifelong friends from around the world.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="timeline3">
+                    <div class="timeline-content">
+                        <h3>Prestigious Collaborations</h3>
+                        <p>In previous editions of AMIMUN conferences, we had the honour of securing a prestigious collaboration with UNIC and other international and national organizations such as Amnesty India, Doctors Without Borders, and HeForShe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About AMIMUN</h3>
+                    <p>The Amity International Model United Nations Conference is a platform for young leaders to engage in global discourse and diplomacy.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
+                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
+                        <li><a href="index.html#team">Our Team</a></li>
+                        <li><a href="index.html#committees">Committees</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Amity University, Noida, India</p>
+                    <p><i class="fas fa-envelope"></i> info@amimun.org</p>
+                    <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AMIMUN. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.feature-card, .timeline-item');
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+
+            // Initial check
+            animateOnScroll();
+
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
