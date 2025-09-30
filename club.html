@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club - AMIMUN 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Custom Styles for Club Page -->
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 31, 84, 0.9), rgba(0, 31, 84, 0.8)), url('images/hero-bg-2.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            z-index: 3;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+            position: relative;
+        }
+        
+        .page-header p {
+            color: white;
+            z-index: 3;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 31, 84, 0.92), rgba(0, 71, 149, 0.88));
+            z-index: 1;
+        }
+
+        .header-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        /* Club Grid */
+
+        .club-section {
+            padding: 80px 0;
+            background-color: #f9fafc;
+        }
+
+        .club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .member-card:nth-child(1) { animation-delay: 0.1s; }
+        .member-card:nth-child(2) { animation-delay: 0.2s; }
+        .member-card:nth-child(3) { animation-delay: 0.3s; }
+        .member-card:nth-child(4) { animation-delay: 0.4s; }
+        .member-card:nth-child(5) { animation-delay: 0.5s; }
+        .member-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .member-image {
+            height: 300px;
+            background: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #e1e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 4rem;
+        }
+
+        .member-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .member-info p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .designation {
+            color: var(--accent-color) !important;
+            font-weight: 500;
+            margin: 10px 0;
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .club-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Spotlight */
+
+        .gallery-section {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 60px 0 20px;
+            background-color: #f9fafc;
+            opacity: 0;
+        }
+
+        .gallery-section.visible {
+            opacity: 1;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .gallery-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .gallery-carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: scroll 60s linear infinite;
+            padding: 20px 0;
+        }
+
+        .gallery-card {
+            min-width: 180px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .gallery-card img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease, filter 0.4s ease;
+            filter: grayscale(20%);
+        }
+
+        .gallery-carousel::before,
+        .gallery-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .gallery-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, #f9fafc, rgba(249, 250, 252, 0));
+        }
+
+        .gallery-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, #f9fafc, rgba(249, 250, 252, 0));
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-200px * 12));
+            }
+        }
+
+        /* Pause animation on hover */
+        .gallery-carousel:hover .gallery-track {
+            animation-play-state: paused;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-card {
+                min-width: 140px;
+                height: 90px;
+                padding: 10px 15px;
+            }
+            
+            .gallery-card img {
+                max-height: 50px;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-160px * 12));
+                }
+            }
+        }
+
+        
+        /* Custom Footer CSS */
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation (Same as other pages) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">AMIMUN'26</a>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
+                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link active">Our Team <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
+                        <li><a href="advisory-board.html">Advisory Board</a></li>
+                        <li><a href="#">Secretariat</a></li>
+                        <li><a href="#">Organizing Committee</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="committees.html" class="nav-link active">Committees</a></li>
+                <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
+                <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="header-bg"></div>
+        <div class="header-particles"></div>
+        <h1>
+            OUR CLUB
+            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: var(--accent-color);"></span>
+        </h1>
+        <br>
+        <p>
+            Meet our dedicated club members, the driving force behind every initiative and achievement.
+        </p>
+    </div>
+
+    <!-- Club Members Section -->
+    <section class="club-section">
+        <div class="club-grid">
+            <!-- Member 1 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Abhijeet Singh</h3>
+                    <span class="designation">President</span>
+                    <p>Leading the club with vision and responsibility, ensuring unity and growth in every initiative.</p>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Debanjan Dasgupta</h3>
+                    <span class="designation">Vice President</span>
+                    <p>Supporting the president in decision-making and coordinating activities across the club.</p>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Kashish Mehra</h3>
+                    <span class="designation">Vice President</span>
+                    <p>Assisting in leadership duties and helping maintain smooth operations and collaboration.</p>
+                </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Saksham Shivashish</h3>
+                    <span class="designation">Treasurer</span>
+                    <p>Managing club finances with transparency, ensuring resources are effectively utilized.</p>
+                </div>
+            </div>
+
+            <!-- Member 5 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Aimen Akbar</h3>
+                    <span class="designation">Member Secretary</span>
+                    <p>Maintaining records, communications, and ensuring the timely flow of information.</p>
+                </div>
+            </div>
+
+            <!-- Member 6 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3>Ishaan Mathur</h3>
+                    <span class="designation">Member Secretary</span>
+                    <p>Supporting documentation and correspondence to keep the club well-organized.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+      <section class="gallery-section">
+        <div class="container">
+            <h2>The Spotlight</h2>
+            <div class="gallery-carousel">
+                <div class="gallery-track">
+                    <!-- First Set of Images -->
+                    <div class="gallery-card">
+                        <img src="gallery/1.png" alt="1">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/2.png" alt="2">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/3.png" alt="3">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/4.png" alt="4">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/5.png" alt="5">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/6.png" alt="6">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/7.png" alt="7">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/8.png" alt="8">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/9.png" alt="9">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/10.jpg" alt="10">
+                    </div>
+                    
+                    <!-- Duplicated Set for Seamless Loop -->
+                    <div class="gallery-card">
+                        <img src="gallery/1.png" alt="1">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/2.png" alt="2">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/3.png" alt="3">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/4.png" alt="4">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/5.png" alt="5">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/6.png" alt="6">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/7.png" alt="7">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/8.png" alt="8">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/9.png" alt="9">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="gallery/10.jpg" alt="10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About AMIMUN</h3>
+                    <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues with <i class="fas fa-heart"></i>.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
+                        <li><a href="advisory-board.html">Advisory Board</a></li>
+                        <li><a href="committees.html">Committees</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Amity University, Noida, India</p>
+                    <p><i class="fas fa-envelope"></i> info@amimun.org</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AMIMUN. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Spotlight -->
+
+    <script>
+        const gallerySection = document.querySelector('.gallery-section');
+
+        window.addEventListener('scroll', () => {
+            const sectionTop = gallerySection.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if(sectionTop < screenHeight - 100){
+                gallerySection.classList.add('visible');
+            }
+        });
+
+    </script>
+    
+    </body>
+    </html>

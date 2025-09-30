@@ -101,34 +101,46 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: var(--transition);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
     border: 2px solid transparent;
     cursor: pointer;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+    background-color: #0056b3; /* Moderate blue */
+    color: white;
+    border-color: #0056b3;
+    user-select: none;
   }
   
-  .btn-primary {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-color: var(--primary-color);
+  .btn:hover, 
+  .btn:focus {
+    background-color: #00409a; /* Darker rich blue for hover */
+    color: white;
+    border-color: #003580;
+    box-shadow: 0 8px 20px rgba(0, 64, 154, 0.8);
+    outline: none;
   }
   
-  .btn-primary:hover {
-    background-color: transparent;
-    color: var(--primary-color);
+  .btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 86, 179, 0.3);
   }
   
   .btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border-color: var(--primary-color);
     margin-left: 15px;
   }
   
-  .btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .btn {
+      padding: 10px 25px;
+      font-size: 0.9rem;
+    }
+    .btn-secondary {
+      margin-left: 10px;
+    }
   }
+  
   
   /* Navigation */
   .navbar {
@@ -261,7 +273,7 @@
     min-height: 700px;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #001F54 0%, #034078 100%);
+    background: linear-gradient(135deg, #1451a0 0%, #114171 100%);
     color: var(--white);
     position: relative;
     overflow: hidden;
@@ -356,7 +368,7 @@
     margin: 20px 0;
     opacity: 0.9;
     font-style: italic;
-    color: var(--white);
+    color: rgb(142, 139, 139);
 }
 
 .hero-buttons {
@@ -671,18 +683,18 @@
     overflow: hidden;
     position: relative;
     padding: 60px 0 20px;
-}
-
-.sponsors-section h2 {
+  }
+  
+  .sponsors-section h2 {
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 40px;
     font-size: 2.2rem;
     position: relative;
     padding-bottom: 15px;
-}
-
-.sponsors-section h2::after {
+  }
+  
+  .sponsors-section h2::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -691,24 +703,24 @@
     width: 80px;
     height: 3px;
     background: var(--accent-color);
-}
-
-.sponsors-carousel {
+  }
+  
+  .sponsors-carousel {
     width: 100%;
     overflow: hidden;
     position: relative;
     padding: 20px 0;
-}
-
-.sponsors-track {
+  }
+  
+  .sponsors-track {
     display: flex;
     gap: 20px;
     width: max-content;
-    animation: scroll 60s linear infinite;
+    animation: scroll 120s linear infinite; /* doubled duration */
     padding: 20px 0;
-}
-
-.sponsor-card {
+  }
+  
+  .sponsor-card {
     min-width: 180px;
     height: 120px;
     display: flex;
@@ -716,32 +728,43 @@
     justify-content: center;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     padding: 15px 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sponsor-card:hover {
+  }
+  
+  .sponsor-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.sponsor-card img {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .sponsor-card img {
     max-width: 100%;
     max-height: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
-}
-
-@keyframes scroll {
+  }
+  .sponsors-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    padding: 20px 0;
+  }
+  
+  .sponsors-track:hover {
+    animation-duration: 90s; /* slow down the scroll on hover */
+  }
+  
+  @keyframes scroll {
     0% {
-        transform: translateX(0);
+      transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-200px * 12));
+      transform: translateX(calc(-50% - 20px));
     }
-}
+  }
+  
 
 /* Pause animation on hover */
 .sponsors-carousel:hover .sponsors-track {

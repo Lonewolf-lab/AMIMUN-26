@@ -234,6 +234,7 @@
                     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
                     letter-spacing: -0.5px;
                     line-height: 1.2;
+                    color: white;
                 ">Delegation Matrix</h1>
                 
                 <div style="
@@ -255,6 +256,7 @@
                     line-height: 1.6;
                     transform: translateY(10px);
                     animation: fadeInUp 0.8s ease-out 0.5s forwards;
+                    color: grey;
                 ">Browse through the complete list of countries and their respective committee assignments</p>
                 
                 <div class="header-buttons" style="
@@ -290,7 +292,7 @@
                         border: 2px solid white;
                         color: white;
                     ">
-                        <i class="fas fa-download" style="margin-right: 8px;"></i> Download CSV
+                        <i class="fas fa-download" style="margin-right: 8px;"></i> Download Matrix
                     </a>
                 </div>
             </div>
@@ -360,11 +362,6 @@
 
     <!-- Matrix Content -->
     <section class="matrix-container">
-        <div class="matrix-header">
-            <h1>Delegation Matrix</h1>
-            <p>Browse through the complete list of countries and their respective committee assignments</p>
-        </div>
-        
         <div class="matrix-table-container">
             <div class="table-wrapper">
                 <div class="loading" id="loading">
@@ -433,7 +430,12 @@
           const loadingEl = document.getElementById('loading');
           const tableEl = document.getElementById('matrix-table');
         
-          // Create UI: tabs + actions + search
+          let columnWidths = [];
+        
+          // Original functions ensureUI, buildTabs, renderSheet, downloadExcelSheet remain unchanged except:
+          // Remove Download CSV button creation from tools.innerHTML in ensureUI()
+          // Hook downloadExcelSheet to Download Excel button with id 'download-excel'
+        
           function ensureUI() {
             let actionBar = document.getElementById('matrix-actions');
             if (!actionBar) {
@@ -457,7 +459,7 @@
               tools.style.gap = '10px';
               tools.innerHTML = `
                 <input id="matrix-search" type="search" placeholder="Search this sheet…" style="padding:8px 10px;border:1px solid #ddd;border-radius:8px;min-width:220px;">
-                <button id="download-csv" class="btn btn-secondary">Download CSV</button>
+                <button id="download-excel" class="btn btn-secondary" style="background: #4CAF50; border-color: #4CAF50; margin-right: 5px;">Download Matrix</button>
               `;
         
               actionBar.appendChild(tabs);
@@ -490,7 +492,6 @@
             const { filterText = '' } = options;
             const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: true });
         
-            // Filter rows by search text
             const q = filterText.trim().toLowerCase();
             const filtered = q
               ? rows.filter((r, i) => i === 0 || r.some(cell => String(cell ?? '').toLowerCase().includes(q)))
@@ -498,14 +499,31 @@
         
             tableEl.innerHTML = '';
         
+            if (columnWidths.length === 0) {
+              filtered.forEach(row => {
+                row.forEach((cell, colIndex) => {
+                  const cellLength = String(cell ?? '').length;
+                  columnWidths[colIndex] = Math.max(columnWidths[colIndex] || 0, cellLength);
+                });
+              });
+            }
+        
             const thead = document.createElement('thead');
             const tbody = document.createElement('tbody');
         
             filtered.forEach((row, idx) => {
               const tr = document.createElement('tr');
-              row.forEach(cell => {
+              row.forEach((cell, colIndex) => {
                 const el = document.createElement(idx === 0 ? 'th' : 'td');
                 el.textContent = cell == null ? '' : String(cell);
+        
+                if (columnWidths[colIndex]) {
+                  el.style.minWidth = `${Math.min(columnWidths[colIndex] * 8 + 20, 300)}px`;
+                  el.style.maxWidth = '300px';
+                  el.style.overflow = 'hidden';
+                  el.style.textOverflow = 'ellipsis';
+                  el.style.whiteSpace = 'nowrap';
+                }
                 tr.appendChild(el);
               });
               if (idx === 0) thead.appendChild(tr);
@@ -514,25 +532,23 @@
         
             tableEl.appendChild(thead);
             tableEl.appendChild(tbody);
+            tableEl.style.tableLayout = 'fixed';
         
-            // Ensure visible
             if (loadingEl) loadingEl.style.display = 'none';
             tableEl.style.display = 'table';
           }
         
-          function downloadCSV(sheet, name = 'sheet') {
-            const csv = XLSX.utils.sheet_to_csv(sheet);
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `${name}.csv`;
-            a.click();
-            URL.revokeObjectURL(a.href);
+          function downloadExcelSheet(sheet, name = 'sheet') {
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, sheet, name);
+            XLSX.writeFile(wb, `${name}.xlsx`);
           }
         
           async function init() {
             ensureUI();
             if (loadingEl) loadingEl.style.display = 'flex';
+        
+            columnWidths = [];
         
             const res = await fetch(filePath);
             if (!res.ok) throw new Error(`HTTP ${res.status} loading ${filePath}`);
@@ -551,14 +567,12 @@
               renderSheet(sheet, { filterText: search?.value || '' });
               buildTabs(wb.SheetNames, selectSheet, activeName);
         
-              // Wire download to active sheet
-              const dl = document.getElementById('download-csv');
+              const dl = document.getElementById('download-excel');
               if (dl) {
-                dl.onclick = () => downloadCSV(sheet, name);
+                dl.onclick = () => downloadExcelSheet(sheet, name);
               }
             }
         
-            // Search handler
             const search = document.getElementById('matrix-search');
             if (search) {
               let t;
@@ -568,24 +582,36 @@
               });
             }
         
-            // Initial render
             selectSheet(activeName);
+        
+            // Top hero section download button that downloads full excel file
+            const downloadFullBtn = document.getElementById('download-csv');
+            if (downloadFullBtn) {
+              downloadFullBtn.textContent = 'Download Excel';
+              downloadFullBtn.onclick = (e) => {
+                e.preventDefault();
+                const link = document.createElement('a');
+                link.href = filePath;
+                link.download = 'Country-Matrix.xlsx';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              };
+            }
           }
         
           init().catch(err => {
             console.error(err);
             if (loadingEl) {
               loadingEl.innerHTML = `
-                <div style="text-align:center; padding:20px;">
-                  <i class="fas fa-exclamation-triangle" style="font-size:2rem; color:#e74c3c; margin-bottom:10px;"></i>
-                  <p>Failed to load matrix: ${err.message}</p>
-                </div>
-              `;
+                  <div style="text-align:center; padding:20px;">
+                    <i class="fas fa-exclamation-triangle" style="font-size:2rem; color:#e74c3c; margin-bottom:10px;"></i>
+                    <p>Failed to load matrix: ${err.message}</p>
+                  </div>
+                  `;
             }
           });
         });
-        </script>
-        
-    
+        </script>    
 </body>
 </html>
