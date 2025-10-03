@@ -1,53 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advisory Board - AMIMUN 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
-        /* Advisory Board Specific Styles */
+        :root {
+            --primary-color: #001F54;
+            --secondary-color: #034078;
+            --accent-color: #1282A2;
+            --light-color: #F8F9FA;
+            --dark-color: #212529;
+            --gradient-1: linear-gradient(135deg, #063587 0%, #034078 100%);
+            --gradient-2: linear-gradient(135deg, #034078 0%, #1282A2 100%);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Header Styles */
         .page-header {
-            background: linear-gradient(rgba(0, 31, 84, 0.9), rgba(0, 31, 84, 0.8)), url('images/hero-bg-2.jpg') no-repeat center center/cover;
+            background: var(--gradient-1);
             color: white;
-            padding: 150px 0 100px;
+            padding: 180px 0 120px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-size: 200% 200%;
+            animation: gradientBG 12s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwJSIgaGVpZ2h0PSI1MCUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* Advisory Section */
+        .advisory-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
             position: relative;
             overflow: hidden;
         }
 
-        .page-header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease-out;
+        .advisory-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, white, rgba(255,255,255,0));
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
             position: relative;
+            z-index: 2;
         }
 
-        .advisory-section {
-            padding: 80px 0;
-            background-color: #f9fafc;
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
         }
 
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Advisory Grid */
         .advisory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .member-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .member-card:nth-child(1) { animation-delay: 0.1s; }
@@ -57,56 +160,158 @@
         .member-card:nth-child(5) { animation-delay: 0.5s; }
 
         .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .member-image {
             height: 300px;
-            background: #f5f7fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
         }
 
-        .placeholder-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: #e1e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            font-size: 4rem;
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .member-details {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .member-details h3 {
+            color: var(--primary-color);
+            margin: 0 0 5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .member-role {
+            color: var(--accent-color);
+            margin: 0;
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         .member-info {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .member-card:hover .member-image img {
+            transform: scale(1.05);
+        }
+
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* Remove gradient background */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: rgb(36, 79, 188);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add text shadow for better readability */
+            color: #0a2d6d; /* Deep blue that works well on light backgrounds */
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3); /* White shadow for better contrast */
+        }
+
+        .member-info {
+            padding: 30px;
             text-align: center;
         }
 
         .member-info h3 {
             color: var(--primary-color);
-            margin-bottom: 10px;
             font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .member-info p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        .designation {
-            color: var(--accent-color) !important;
-            font-weight: 500;
-            margin: 10px 0;
+        .member-designation {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
             display: block;
+            font-size: 1rem;
         }
 
+        .member-bio {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -118,187 +323,369 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .advisory-grid {
-                grid-template-columns: 1fr;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
-            
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .advisory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 80px;
+            }
+
             .page-header h1 {
                 font-size: 2.5rem;
             }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .advisory-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .member-card {
+                margin-bottom: 30px;
+            }
         }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .member-info {
+                padding: 20px 15px;
+            }
+        }
+        /* Update these styles in your existing CSS */
+        .member-image {
+    height: 380px; /* Increased from 300px */
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+/* Adjust card layout to accommodate larger image */
+.member-card {
+    min-height: 800px; /* Increased from 700px */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the image fill the container */
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+/* Adjust the info section to take remaining space */
+.member-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+/* Ensure message area takes available space */
+.member-message {
+    flex: 1;
+    overflow-y: auto;
+    margin: 15px 0;
+    padding-right: 10px;
+}
+
+.member-overlay h3 {
+    color: #0a2d6d; /* Dark blue for names */
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+    font-weight: 700; /* Slightly bolder for better readability */
+}
+
+.member-overlay p {
+    color: #1a4b8c; /* Slightly lighter blue for designation */
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Adjust card grid for better spacing */
+.advisory-grid {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 45px;
+    padding: 0 30px;
+}
+.member-designation {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 15px 0;
+    display: block;
+    font-size: 1.1rem;
+}
+
+.member-message {
+    color: #555;
+    line-height: 1.8; /* Increased line height */
+    margin: 15px 0 25px;
+    font-size: 0.95rem;
+    text-align: left;
+    max-height: 300px; /* Increased max height */
+    overflow-y: auto;
+    padding: 0 10px 15px 0;
+    flex-grow: 1;
+}
+
+/* Add more space between cards */
+.advisory-grid {
+    gap: 40px; /* Increased from 30px */
+    padding: 0 30px; /* Added side padding */
+}
+
+/* Make the cards taller to accommodate messages */
+.member-card {
+    min-height: 700px; /* Increased minimum height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Improve message paragraph spacing */
+.member-message p {
+    margin-bottom: 20px; /* Increased bottom margin */
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Add some breathing room to the section */
+.advisory-section {
+    padding: 100px 0 120px;
+}
+
+/* Adjust the header spacing */
+.page-header {
+    padding: 200px 0 150px;
+}
+
+/* Make the message scrollbar more subtle */
+.member-message::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Add a subtle hover effect to cards */
+.member-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">AMIMUN'26</a>
-            <div class="nav-toggle" id="navToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#about" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
-                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#team" class="nav-link active">Our Team <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
-                        <li><a href="advisory-board.html">Advisory Board</a></li>
-                        <li><a href="#secretariat">Secretariat</a></li>
-                        <li><a href="#organizing-committee">Organizing Committee</a></li>
-                        <li><a href="#messages">Messages</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
-                <li class="nav-item"><a href="#matrix" class="nav-link">Matrix</a></li>
-                <li class="nav-item"><a href="#club" class="nav-link">Club</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
+      <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">AMIMUN'26</a>
+      <div class="nav-toggle" id="navToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-item dropdown">
+          <a href="#about" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="why-amimun.html">Why AMIMUN</a></li>
+            <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#team" class="nav-link">Our Team <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="guiding-light.html">Our Guiding Light</a></li>
+            <li><a href="advisory-board.html">Advisory Board</a></li>
+            <li><a href="secretariat.html">Secretariat</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
+        <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
+        <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
+      </ul>
+    </div>
+  </nav>
 
     <!-- Page Header -->
     <header class="page-header">
-        <h1 style="color: white;">Advisory Board</h1>
-        <p style="color: white;">Meet our esteemed advisory committee members who guide and support AMIMUN 2026</p>
+        <div class="container">
+            <h1 style = "color: whitesmoke;">Meet Our Advisory Board</h1>
+            <p style = "color: whitesmoke;">Guiding AMIMUN 2026 with wisdom, experience, and vision</p>
+        </div>
     </header>
 
-    <!-- Advisory Board Section -->
+    <!-- Advisory Section -->
     <section class="advisory-section">
-        <div class="advisory-grid">
-            <!-- Member 1 -->
-            <div class="member-card">
-                <div class="member-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Dr. Alpana Kakkar</h3>
-                    <span class="designation">Dean Student Support & Academic Affairs</span>
-                    <p>Providing strategic guidance and academic leadership for AMIMUN 2026.</p>
-                </div>
-            </div>
+        <div class="container">
 
-            <!-- Member 2 -->
-            <div class="member-card">
-                <div class="member-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-user-tie"></i>
+            <div class="advisory-grid">
+                <!-- Member 1 - Gauri Sareen -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="images/advisory-board/Gauri.jpg" alt="Member Name">
+                    </div>
+                    <div class="member-details">
+                        <h3>Gauri Sareen</h3>
+                        <p class="member-role">Chief Advisor</p>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-message">
+                            <p>Dear AMIMUN Family,</p>
+                            <p>As I sit down to write this message, my heart is filled with emotions that words can barely capture. The journey I have had with AMIMUN is not just a chapter in my life; it is a saga of growth, belonging, and unforgettable memories. It feels like yesterday when I walked into my first AMIMUN conference as a nervous delegate, unsure of my voice and my place. What I found was more than just a platform for debate and diplomacy — I found a home. The people I met, the lessons I learned, and the challenges I faced didn’t just shape my skills; they transformed me. From that wide-eyed delegate to becoming Secretary-General of AMIMUN’24, this journey has been a testament to how kindness, mentorship, and belief can push someone to achieve the extraordinary.</p>
+                            <p>AMIMUN is not just an event; it is a legacy built on dreams, dedication, and a shared vision for a better world. Every individual who becomes a part of this family — be it a delegate, a volunteer, or a leader — contributes a unique thread to this vibrant tapestry. The warmth, generosity, and camaraderie that flow through AMIMUN make it unlike anything else. It’s not just about the sessions, the resolutions, or the awards; it’s about the people — people who inspire you, guide you, and stand by you.</p>
+                            <p>As I take on the role of Chief Advisor for AMIMUN’25, I am deeply moved by the passion and energy that each one of you brings. You are not just participants; you are torchbearers of this beautiful legacy. I encourage you to embrace this experience with all your heart, for it will leave an indelible mark on you, just as it did on me. Here’s to celebrating the spirit of AMIMUN — a home, a family, and a legacy that continues to thrive through each one of us.</p>
+                            <p>With Gratitude,<br>Gauri Sareen</p>
+                        </div>
+                        <div class="social-links">
+                            <!-- Social links here -->
+                        </div>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h3>Dr. H.P. Singh</h3>
-                    <span class="designation">Dean Student Welfare</span>
-                    <p>Overseeing student welfare and ensuring a supportive environment for all participants.</p>
-                </div>
-            </div>
 
-            <!-- Member 3 -->
-            <div class="member-card">
-                <div class="member-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Dr. Anil Sehrawat</h3>
-                    <span class="designation">Deputy Director, Amity Institute of Corporate Communication</span>
-                    <p>Bringing expertise in communication strategies and public relations.</p>
-                </div>
-            </div>
+<!-- Member 2 - Sagar Chamarti -->
+<div class="member-card">
+    <div class="member-image">
+        <img src="images/advisory-board/Sagar Chamarti.jpg" alt="Member Name">
+    </div>
+    <div class="member-details">
+        <h3>Sagar Chamarti</h3>
+        <p class="member-role">Director General, AMIMUN'24</p>
+    </div>
+    <div class="member-info">
+        <div class="member-message">
+            <p>Dear Delegates,</p>
+            <p>It is my privilege to welcome you to the Amity International Model United Nations Conference 2025. As the Director General of AMIMUN 2024, I have had the profound opportunity to witness the transformative power of diplomatic dialogue and its ability to promote unity across nations.</p>
+            <p>The theme of AMIMUN 2024, "Optimus ad Optimorum," underscored the importance of striving for excellence and embracing our shared responsibility toward a better world. This legacy now serves as a foundation for the aspirations and initiatives you bring to this year’s conference.</p>
+            <p>As delegates, you are more than participants; you are visionaries shaping the global narrative. Your discussions and collaborations have the potential to transcend boundaries and foster solutions for a brighter future. With this responsibility comes the incredible power to turn words into meaningful action, and I encourage you to embrace this challenge wholeheartedly.</p>
+            <p>To the Secretariat and Organizing Committee of AMIMUN 2025, your tireless dedication and collaborative efforts have brought this event to life. From the initial planning stages to the culmination of this remarkable conference, you have shown what true determination can achieve. Your commitment to excellence is an inspiration, and I commend your extraordinary efforts in continuing the AMIMUN legacy.</p>
+            <p>Delegates, may your debates be enlightening, your resolutions impactful, and your resolve unwavering. Together, let us work toward a world where peace is not just an ideal but a reality realized through our collective will and action.</p>
+            <p>Warm Regards,<br>Sagar Chamarti</p>
+        </div>
+        <div class="social-links">
+            <!-- Social links here -->
+        </div>
+    </div>
+</div>
 
-            <!-- Member 4 -->
-            <div class="member-card">
-                <div class="member-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Dr. Nitasha Hasteer</h3>
-                    <span class="designation">Dy. Director – Academics & Head, Department of IT, ASET</span>
-                    <p>Guiding academic excellence and technological integration for the event.</p>
-                </div>
-            </div>
+<!-- Member 3 - Jai Yadav -->
+<div class="member-card">
+    <div class="member-image">
+        <img src="images/advisory-board/Jai Yadav.jpg" alt="Jai Yadav">
+    </div>
+    <div class="member-details">
+        <h3>Jay Yadav</h3>
+        <p class="member-role">Deputy Director General, AMIMUN'24</p>
+    </div>
+    <div class="member-info">
+        <div class="member-message">
+            <p>Dear AMIMUN Delegates,</p>
+            <p>Every year, AMIMUN becomes more than just a conference — it becomes a movement of young minds determined to create ripples of change in the world. What sets AMIMUN apart is not only the passion for diplomacy or the pursuit of knowledge, but also the courage of its participants to challenge perspectives, redefine narratives, and imagine a future that is brighter and more inclusive. To be part of this legacy is an honor, and to witness its growth year after year is truly inspiring.</p>
+            <p>As you step into this journey, I urge you to embrace the power of dialogue, for it is through conversations that divisions are bridged and solutions are born. Diplomacy is not about proving oneself right, but about finding a path where differences transform into opportunities for collaboration. Take every committee session as a chance to learn, to question, and to grow — for these moments will stay with you long after the gavel has fallen.</p>
+            <p>With every resolution you draft and every perspective you share, remember that you are contributing to something greater — a tradition of unity, hope, and progress. May this conference ignite in you the conviction that the future is not only to be awaited, but to be built by those willing to dream and act.</p>
+            <p>Warm Regards,<br>Jai Yadav</p>
+        </div>
+        <div class="social-links">
+            <!-- Social links here -->
+        </div>
+    </div>
+</div>
 
-            <!-- Member 5 -->
-            <div class="member-card">
-                <div class="member-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Mr. Jai Saini</h3>
-                    <span class="designation">Director, Students' Welfare and Support</span>
-                    <p>Ensuring comprehensive support systems for all participants and organizers.</p>
-                </div>
+<!-- Member 4 - Amishi Arora -->
+<div class="member-card">
+    <div class="member-image">
+        <img src="images/advisory-board/Amishi.png" alt="Member Name">
+    </div>
+    <div class="member-details">
+        <h3>Amishi Arora </h3>
+        <p class="member-role">Dy. Director – Academics & Head, IT, ASET</p>
+    </div>
+    <div class="member-info">
+        <div class="member-message">
+            <p>Dear AMIMUN Family,</p>
+            <p>The essence of AMIMUN lies not only in its dynamic committees or the brilliance of its delegates, but in the spirit of collaboration and unity it fosters. Each edition reaffirms that diplomacy is not confined to international halls of power — it begins here, with each one of you who dares to take the floor, voice your convictions, and work together toward common ground.</p>
+            <p>What makes AMIMUN truly remarkable is the sense of belonging it creates — a space where ideas are respected, voices are valued, and differences are celebrated as strengths. It is in this environment that delegates discover not only their ability to lead but also the humility to listen. The friendships you form, the lessons you carry, and the challenges you overcome during this conference will become part of the legacy that AMIMUN continues to build with every passing year.</p>
+            <p>As future leaders and changemakers, your role in this conference is pivotal. Let AMIMUN 2025 be a reminder that leadership is not about titles, but about responsibility; not about recognition, but about service. Carry forward the lessons, the camaraderie, and the spirit of AMIMUN into your lives, and you will see how this experience shapes not only your present but also the future you create.</p>
+            <p>With Best Wishes,<br>Amishi Arora</p>
+        </div>
+        <div class="social-links">
+            <!-- Social links here -->
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>About AMIMUN</h3>
-                    <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues with <i class="fas fa-heart"></i>.</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
-                        <li><a href="advisory-board.html">Advisory Board</a></li>
-                        <li><a href="committees.html">Committees</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Amity University, Noida, India</p>
-                    <p><i class="fas fa-envelope"></i> info@amimun.org</p>
-                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+            <div class="footer-about" style="flex: 1; min-width: 300px; margin-bottom: 30px;">
+                <h3>About AMIMUN</h3>
+                <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 AMIMUN. All Rights Reserved.</p>
+            <div class="footer-links" style="margin-left: auto; min-width: 200px;">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 10px;"><a href="#home" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#about" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#team" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Our Team</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#committees" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Committees</a></li>
+                    <li><a href="#contact" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Contact Us</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
+        </div>
+    </div>
+</footer>
 
     <script>
-        // Mobile Navigation Toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
 
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-        }
-
-        // Smooth scroll for anchor links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
@@ -306,25 +693,32 @@
             });
         });
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
+        // Animate on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.member-card');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        };
 
-        // Observe all member cards
-        document.querySelectorAll('.member-card').forEach(card => {
-            observer.observe(card);
-        });
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
     </script>
 </body>
 </html>

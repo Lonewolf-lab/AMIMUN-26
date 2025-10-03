@@ -11,6 +11,23 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+  /* Add hover effect for the image */
+  .welcome-card-content img:hover {
+        transform: scale(1.02);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .welcome-card-content {
+            flex-direction: column;
+        }
+        .welcome-card-content > div {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+        }
+    }
+</style>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
@@ -35,8 +52,7 @@
           <ul class="dropdown-menu">
             <li><a href="guiding-light.html">Our Guiding Light</a></li>
             <li><a href="advisory-board.html">Advisory Board</a></li>
-            <li><a href="#secretariat">Secretariat</a></li>
-            <li><a href="#organizing-committee">Organizing Committee</a></li>
+            <li><a href="secretariat.html">Secretariat</a></li>
           </ul>
         </li>
         <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
@@ -57,8 +73,8 @@
         </h1>
         <p class="tagline">"From debate to dialogue, from words to actions. Diplomacy is about the interest of the people not the power of the state."</p>
         <div class="hero-buttons">
-          <a href="#delegate-form" class="btn btn-primary">Delegate Form</a>
-          <a href="#ip-form" class="btn btn-secondary">IP Form</a>
+          <a href="https://www.amity.edu/nspg/AMIMUN2026/Register/DelegateForm.aspx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Delegate Form</a>
+          <a href="https://www.amity.edu/nspg/AMIMUN2026/Register/IPForm.aspx" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">IP Form</a>
         </div>
       </div>
       <div class="globe-container">
@@ -71,27 +87,40 @@
     </div>
   </section>
 
-  <!-- Welcome Section -->
-  <section class="welcome-section" id="about">
-    <div class="container">
+<!-- Welcome Section -->
+<section class="welcome-section" id="about">
+  <div class="container">
       <h2>Welcome to AMIMUN '26</h2>
       <div class="welcome-card">
-        <div class="welcome-card-content">
-          <p style="font-size: 1.2rem; font-weight: bold;">“The price of excellence is discipline. The cost of mediocrity is disappointment.” – William Arthur Ward.</p>
-          <p>This reminder reflects the essence of AMIMUN’26. True excellence in governance, diplomacy, or personal growth rests on discipline: the discipline to learn with humility, act with integrity, and persevere with resilience. Without it, ambition falters, and what remains is mediocrity, bringing only disappointment.</p>
-          <p>It is in this spirit that I, Debanjan Dasgupta, Secretary-General of AMIMUN’26, welcome you all to the 15th edition of the Amity International Model United Nations. From January 16th to 18th, 2026, at Amity University, Uttar Pradesh, I envision AMIMUN’26 as a platform where young minds unite in diplomacy, dialogue, and discovery anchored in discipline and driven toward excellence.</p>
-          <p>Virtus Per Disciplinam-“Excellence through Discipline”, the theme of this year, reminds us that true leadership is not merely defined by rhetoric or ambition, but by the unwavering consistency to strive for meaningful impact, the resilience to overcome adversity, and the steadfast discipline to remain anchored in our principles. Discipline serves as the compass that directs us toward responsibility, clarity, and advancement at a time when divides and diversions sometimes impair judgment. We foster excellence in ourselves and the communities we serve by practicing this discipline of thinking, action, and purpose.</p>
-          <p>At AMIMUN, we believe that discipline is the cornerstone of true leadership, shaping individuals who are principled, steadfast, and prepared to confront the complexities of our world. By guiding delegates to think with discernment, listen earnestly, and act with integrity, this platform transforms every dialogue into an experience that cultivates perseverance, patience, and meaningful growth.
-            This edition is based on the direction and unwavering support of our Founder President,Dr. Ashok K. Chauhan Sir Chancellor Atul Chauhan Sir, Vice Chancellor Prof. (Dr.) Balvinder Shukla Ma'am, Additional Pro-Vice Chancellor Sanjeev Bansal Sir, Chairperson Dr. Laxmi Ahuja Ma'am, and Co-Chairperson Dr. Sumitra Singh Ma'am. For this, I am incredibly grateful.</p>
-          <p>Come celebrate with us at AMIMUN’26 as we continue a tradition of excellence, molded not by accident but by the discipline that defines greatness, inspires purpose, and drives leadership.     </p>
-          <div class="signature">
-            <p>Warm regards,</p>
-            <p><strong>Debanjan Dasgupta</strong><br><strong>Secretary General</strong><br>AMIMUN'26</p>
+          <div class="welcome-card-content" style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+              <!-- Secretary General's Photo -->
+              <div style="flex: 0 0 400px; max-width: 100%;">  <!-- Increased to 400px -->
+                <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                    <img src="images/home/sg.jpeg" alt="Debanjan Dasgupta - Secretary General, AMIMUN'26" 
+                         style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                </div>
+                <div class="signature" style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                    <p style="margin: 0; font-weight: 600; color: #001F54; font-size: 1.1rem;">Debanjan Dasgupta</p>
+                    <p style="margin: 5px 0 0; color: #666; font-size: 1rem;">Secretary General, AMIMUN'26</p>
+                </div>
+            </div>
+              
+              <!-- Welcome Message -->
+              <div style="flex: 1; min-width: 300px;">
+                  <p style="font-size: 1.2rem; font-weight: bold; color: #001F54; border-left: 4px solid #1282A2; padding-left: 15px; margin-top: 0;">
+                      “The price of excellence is discipline. The cost of mediocrity is disappointment.” – William Arthur Ward.
+                  </p>
+                  <p>This reminder reflects the essence of AMIMUN’26. True excellence in governance, diplomacy, or personal growth rests on discipline: the discipline to learn with humility, act with integrity, and persevere with resilience. Without it, ambition falters, and what remains is mediocrity, bringing only disappointment.</p>
+                  <p>It is in this spirit that I, Debanjan Dasgupta, Secretary-General of AMIMUN’26, welcome you all to the 15th edition of the Amity International Model United Nations. From January 16th to 18th, 2026, at Amity University, Uttar Pradesh, I envision AMIMUN’26 as a platform where young minds unite in diplomacy, dialogue, and discovery anchored in discipline and driven toward excellence.</p>
+                  <p>Virtus Per Disciplinam-“Excellence through Discipline”, the theme of this year, reminds us that true leadership is not merely defined by rhetoric or ambition, but by the unwavering consistency to strive for meaningful impact, the resilience to overcome adversity, and the steadfast discipline to remain anchored in our principles. Discipline serves as the compass that directs us toward responsibility, clarity, and advancement at a time when divides and diversions sometimes impair judgment. We foster excellence in ourselves and the communities we serve by practicing this discipline of thinking, action, and purpose.</p>
+                  <p>At AMIMUN, we believe that discipline is the cornerstone of true leadership, shaping individuals who are principled, steadfast, and prepared to confront the complexities of our world. By guiding delegates to think with discernment, listen earnestly, and act with integrity, this platform transforms every dialogue into an experience that cultivates perseverance, patience, and meaningful growth.</p>
+                  <p>This edition is based on the direction and unwavering support of our Founder President, Dr. Ashok K. Chauhan Sir, Chancellor Atul Chauhan Sir, Vice Chancellor Prof. (Dr.) Balvinder Shukla Ma'am, Additional Pro-Vice Chancellor Sanjeev Bansal Sir, Chairperson Dr. Laxmi Ahuja Ma'am, and Co-Chairperson Dr. Sumitra Singh Ma'am. For this, I am incredibly grateful.</p>
+                  <p>Come celebrate with us at AMIMUN’26 as we continue a tradition of excellence, molded not by accident but by the discipline that defines greatness, inspires purpose, and drives leadership.</p>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-  </section>
+  </div>
+</section>
 
     <!-- Sponsors Section -->
     <section class="sponsors-section">
@@ -178,7 +207,7 @@
                         <img src="sponsors/shahnaz.jpg" alt="Shahnaz">
                     </div>
                     <div class="sponsor-card">
-                        <img src="sponsors/unesco.png" alt="UNESCO">
+                        <img src="sponsors/unesco.jpg" alt="UNESCO">
                     </div>
                     <div class="sponsor-card">
                         <img src="sponsors/unhcr.png" alt="UNHCR">
@@ -248,78 +277,74 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Have questions about AMIMUN'26? Reach out to us and we'll get back to you as soon as possible.</p>
-                    <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> Amity University, Sector 125, Noida, Uttar Pradesh 201313</p>
-                        <p><i class="fas fa-envelope"></i> info@amimun.in</p>
-                        <p><i class="fas fa-phone"></i> +91 1234567890</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-flexbox">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Reach out to our Secretariat directly for any queries regarding AMIMUN 2026.</p>
+          <div class="contact-details" style="margin-top:22px;">
+            <p><i class="fas fa-map-marker-alt"></i> Amity University, Sector 125, Noida, Uttar Pradesh 201313</p>
+            <p><i class="fas fa-envelope"></i> info@amimun.in</p>
+          </div>
+          <div class="social-links" style="margin-top:18px;">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
-    </section>
+        <div class="core-team-contacts">
+          <div class="team-contact">
+            <h4>Debanjan Dasgupta</h4>
+            <p>Secretary General<br>sgamimun@gmail.com<br><i class="fas fa-phone"></i> <a href="tel:+918305196745">+91 83051 96745</a></p>
+          </div>
+          <div class="team-contact">
+            <h4>Abhijeet Singh</h4>
+            <p>Director General<br>dgamimun@gmail.com<br><i class="fas fa-phone"></i> <a href="tel:+916006229272">+91 60062 29272</a></p>
+          </div>
+          <div class="team-contact">
+            <h4>Saksham Shivasish</h4>
+            <p>Deputy Director General<br>dgamimun@gmail.com<br><i class="fas fa-phone"></i> <a href="tel:+916205521629">+91 62055 21629</a></p>
+          </div>
+          <div class="team-contact">
+            <h4>Sanchit Agarwal</h4>
+            <p>USG Delegate Affairs<br>infoamimun26@gmail.com<br><i class="fas fa-phone"></i> <a href="tel:+917011622175">+91 70116 22175</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>About AMIMUN</h3>
-                    <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
- Web Operations </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#committees">Committees</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for updates and announcements.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your Email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
-            </div>
-        </div>
-    </footer>
+      <div class="container">
+          <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+              <div class="footer-about" style="flex: 1; min-width: 300px; margin-bottom: 30px;">
+                  <h3>About AMIMUN</h3>
+                  <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
+              </div>
+              <div class="footer-links" style="margin-left: auto; min-width: 200px;">
+                  <h3>Quick Links</h3>
+                  <ul style="list-style: none; padding: 0; margin: 0;">
+                      <li style="margin-bottom: 10px;"><a href="#home" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
+                      <li style="margin-bottom: 10px;"><a href="#about" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+                      <li style="margin-bottom: 10px;"><a href="#team" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Our Team</a></li>
+                      <li style="margin-bottom: 10px;"><a href="#committees" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Committees</a></li>
+                      <li><a href="#contact" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Contact Us</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
+          </div>
+      </div>
+  </footer>
 
     <!-- Back to Top Button -->
     <a href="#home" class="back-to-top" id="backToTop">
@@ -330,51 +355,56 @@
     <script src="js/script.js"></script>
     <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('.sponsors-track');
-  if (!track) return;
+    const track = document.querySelector('.sponsors-track');
+if (!track) return;
 
-  // Duplicate children for seamless scroll
-  const children = Array.from(track.children);
-  children.forEach(child => {
-    track.appendChild(child.cloneNode(true));
-  });
+// Duplicate items for seamless loop
+const children = Array.from(track.children);
+children.forEach(child => {
+  track.appendChild(child.cloneNode(true));
+});
 
-  let pos = 0;
-  let speed = 1;      // current speed in px/frame
-  const normalSpeed = 1;
-  const slowSpeed = 0.3;
+let pos = 0;
+let speed = 4.0;
+let isHovered = false;
+let lastTime = null;
+let rafId = null;
 
-  let rafId;
+function animate(time) {
+  if (!lastTime) lastTime = time;
+  const deltaTime = Math.min(100, time - lastTime);
+  lastTime = time;
 
-  // Smoothly adjust speed towards target
-  let targetSpeed = normalSpeed;
-
-  function step() {
-    // Smooth speed approach (linear interpolation)
-    speed += (targetSpeed - speed) * 0.1; // 0.1 is smoothing factor
-
-    const width = track.scrollWidth / 2;
-
-    pos += speed;
-    if (pos >= width) pos -= width;
-
+  if (!isHovered) {
+    pos += speed * (deltaTime / 16.67);
+    const halfTrackWidth = track.scrollWidth / 2;
+    if (pos >= halfTrackWidth) pos = 0;
     track.style.transform = `translateX(${-pos}px)`;
-    rafId = requestAnimationFrame(step);
   }
 
-  track.addEventListener('mouseenter', () => {
-    targetSpeed = slowSpeed;
-  });
+  rafId = requestAnimationFrame(animate);
+}
 
-  track.addEventListener('mouseleave', () => {
-    targetSpeed = normalSpeed;
-  });
+// Hover handlers
+track.addEventListener('mouseenter', () => {
+  isHovered = true;
+});
 
-  step();
+track.addEventListener('mouseleave', () => {
+  isHovered = false;
+  lastTime = performance.now();
+});
 
-  window.addEventListener('beforeunload', () => {
-    if (rafId) cancelAnimationFrame(rafId);
-  });
+// Start animation
+rafId = requestAnimationFrame(animate);
+
+// Clean up
+window.addEventListener('beforeunload', () => {
+  if (rafId) cancelAnimationFrame(rafId);
+});
+
+  // Start animation loop
+  requestAnimationFrame(animate);
 });
 
     </script>

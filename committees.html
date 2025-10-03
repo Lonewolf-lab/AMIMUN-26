@@ -314,51 +314,102 @@
     </style>
 </head>
 <body>
-    <!-- Navigation (Same as other pages) -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">AMIMUN'26</a>
-            <div class="nav-toggle" id="navToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
-                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link active">Our Team <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
-                        <li><a href="#">Advisory Board</a></li>
-                        <li><a href="#">Secretariat</a></li>
-                        <li><a href="#">Organizing Committee</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="committees.html" class="nav-link active">Committees</a></li>
-                <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Club</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
+      <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">AMIMUN'26</a>
+      <div class="nav-toggle" id="navToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-item dropdown">
+          <a href="#about" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="why-amimun.html">Why AMIMUN</a></li>
+            <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#team" class="nav-link">Our Team <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="guiding-light.html">Our Guiding Light</a></li>
+            <li><a href="advisory-board.html">Advisory Board</a></li>
+            <li><a href="secretariat.html">Secretariat</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
+        <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
+        <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Page Header -->
-    <div class="page-header" style="text-align: center; padding: 100px 20px 40px; margin-top: 40px; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out 0.2s forwards;">
-        <h1 style="color: var(--primary-color); font-size: 4rem; font-weight: 700; margin-bottom: 20px; position: relative; display: inline-block; letter-spacing: 1px;">
-            OUR COMMITTEES
-            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: var(--accent-color);"></span>
+<!-- Page Header -->
+<header class="page-header" style="
+    background: linear-gradient(135deg, rgba(0, 31, 84, 0.9), rgba(0, 71, 149, 0.8)), 
+                url('images/committees-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 180px 0 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+">
+    <div class="container" style="
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    ">
+        <h1 style="
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-out;
+            position: relative;
+            padding-bottom: 20px;
+            color: white;
+        ">
+            Our Committees
+            <span style="
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 120px;
+                height: 4px;
+                background: #1282A2;
+                border-radius: 2px;
+            "></span>
         </h1>
-        <p style="color: #666; max-width: 700px; margin: 30px auto 0; line-height: 1.6; font-size: 1.1rem;">
-            Explore our diverse range of committees, each offering unique challenges and learning opportunities for delegates.
+        <p style="
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin: 20px auto 0;
+            max-width: 700px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+            color: white;
+        ">
+            Explore the diverse range of committees at AMIMUN 2025, each offering unique opportunities for debate, diplomacy, and personal growth.
         </p>
     </div>
+    <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwJSIgaGVpZ2h0PSI1MCUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+        opacity: 0.2;
+        z-index: 1;
+    "></div>
+</header>
 
     <!-- Committees Section -->
     <div class="committees-container">
@@ -592,42 +643,30 @@
         </section>
     </div>
 
-    <!-- Footer (Same as other pages) -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>AMIMUN'26</h3>
-                    <p>15th Edition</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
-                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
-                        <li><a href="committees.html">Committees</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Amity University, Noida, India</p>
-                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
-                    <p><i class="fas fa-envelope"></i> info@amimun2026.com</p>
-                </div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+            <div class="footer-about" style="flex: 1; min-width: 300px; margin-bottom: 30px;">
+                <h3>About AMIMUN</h3>
+                <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 AMIMUN. All Rights Reserved.</p>
+            <div class="footer-links" style="margin-left: auto; min-width: 200px;">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 10px;"><a href="#home" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#about" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#team" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Our Team</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#committees" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Committees</a></li>
+                    <li><a href="#contact" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Contact Us</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
+        </div>
+    </div>
+</footer>
 
     <script>
         // Mobile menu toggle
