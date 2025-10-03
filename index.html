@@ -122,6 +122,153 @@
   </div>
 </section>
 
+<!-- Countdown Section -->
+<section class="countdown-section" style="
+    background: linear-gradient(135deg, #001f54, #00308f);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+">
+    <div class="container">
+        <h2 style="
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+        ">
+            AMIMUN'26 STARTS IN:
+        </h2>
+        
+        <div style="
+            width: 80px;
+            height: 4px;
+            background: #1282A2;
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        "></div>
+        
+        <p style="
+    font-size: 1.4rem;
+    margin: 25px 0 35px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+">
+    <i class="far fa-calendar-alt" style="margin-right: 10px; color: #4fc3f7;"></i>
+    January 16-18, 2026
+</p>
+        
+        <div class="countdown-container" style="
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        ">
+            <div class="countdown-item" style="
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px 15px;
+                border-radius: 10px;
+                min-width: 120px;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            ">
+                <div class="countdown-number" id="days" style="
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    color: white;
+                ">00</div>
+                <div class="countdown-label" style="
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: rgba(255, 255, 255, 0.8);
+                ">Days</div>
+            </div>
+            
+            <div class="countdown-item" style="
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px 15px;
+                border-radius: 10px;
+                min-width: 120px;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            ">
+                <div class="countdown-number" id="hours" style="
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    color: white;
+                ">00</div>
+                <div class="countdown-label" style="
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: rgba(255, 255, 255, 0.8);
+                ">Hours</div>
+            </div>
+            
+            <div class="countdown-item" style="
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px 15px;
+                border-radius: 10px;
+                min-width: 120px;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            ">
+                <div class="countdown-number" id="minutes" style="
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    color: white;
+                ">00</div>
+                <div class="countdown-label" style="
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: rgba(255, 255, 255, 0.8);
+                ">Minutes</div>
+            </div>
+            
+            <div class="countdown-item" style="
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px 15px;
+                border-radius: 10px;
+                min-width: 120px;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            ">
+                <div class="countdown-number" id="seconds" style="
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    color: white;
+                ">00</div>
+                <div class="countdown-label" style="
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: rgba(255, 255, 255, 0.8);
+                ">Seconds</div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Sponsors Section -->
     <section class="sponsors-section">
         <div class="container">
@@ -407,6 +554,37 @@ window.addEventListener('beforeunload', () => {
   requestAnimationFrame(animate);
 });
 
+ // Set the date we're counting down to (January 16, 2026 09:00:00)
+ const countDownDate = new Date("Jan 16, 2026 09:00:00").getTime();
+
+// Update the countdown every 1 second
+const x = setInterval(function() {
+    // Get today's date and time
+    const now = new Date().getTime();
+    
+    // Find the distance between now and the countdown date
+    const distance = countDownDate - now;
+    
+    // If countdown is over, stop the timer
+    if (distance < 0) {
+        clearInterval(x);
+        document.querySelector('.countdown-container').innerHTML = 
+            '<div style="font-size: 2rem; font-weight: 700; color: #fff;">The event has started!</div>';
+        return;
+    }
+    
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Display the result
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+}, 1000);
     </script>
         
 </body>
