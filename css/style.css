@@ -1197,46 +1197,32 @@
     padding-bottom: 60px;
 }
 
-/* Globe canvas layout (right column) */
 .globe-container {
-  position: absolute;
-  right: 30px; /* slightly closer for balance */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 280px; /* increased size for bigger globe */
-  max-width: 35vw; /* max width responsive relative to viewport */
-  z-index: 1;
+  position: relative;
+  right: 0;
+  top: auto;
+  transform: none;
+  width: 60vw;        
+  max-width: 420px;   
+  height: auto;
+  margin: 20px 0 0 auto; 
+  padding-right: 0;
+  min-height: auto;
 }
 
 .globe-container img {
   width: 100%;
   height: auto;
-  max-width: 280px;
-  display: block;
-  margin-left: auto;
-  border-radius: 50%;  /* make sure the image edges are rounded */
-  box-shadow: 0 0 90px rgba(18,130,162,0.5); /* subtle glow */
+  border-radius: 50%;   
+  box-shadow: 0 0 40px rgba(18,130,162,0.35);
 }
+
 
 /* Small screens: center but keep visual bias to right by padding left */
 @media (max-width: 900px) {
   .hero .container {
     grid-template-columns: 1fr;
   }
-  .globe-container {
-    position: relative; /* so it flows normally */
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 70vw;
-    max-width: 350px;
-    height: auto;
-    margin: 20px auto 0 auto; /* center horizontally with some margin */
-    padding-right: 0;
-    min-height: auto;
-  }
-  .globe-container img {
-    max-width: 100%;
-    box-shadow: 0 0 60px rgba(18,130,162,0.4);
-  }
+
+  
 }
