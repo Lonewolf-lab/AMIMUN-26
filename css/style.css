@@ -4,7 +4,7 @@
     --primary-color: #001F54;
     --secondary-color: #034078;
     --accent-color: #1282A2;
-    --light-color: #F8F9FA;
+    --light-color: #fafaf8e9;
     --dark-color: #212529;
     --text-color: #333333;
     --text-light: #6C757D;
@@ -150,7 +150,7 @@
     right: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--primary-color); /* dark header */
+    background-color: #022b74; /* dark header */
     box-shadow: none; /* remove white divider line */
     border-bottom: none; /* ensure no border line */
     padding: 15px 0;
