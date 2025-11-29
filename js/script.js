@@ -11,15 +11,41 @@ navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
     document.body.classList.toggle('no-scroll');
+    
+    // Scroll to top of menu when opening on mobile
+    if (navMenu.classList.contains('active') && window.innerWidth <= 768) {
+        setTimeout(() => {
+            navMenu.scrollTop = 0;
+        }, 100);
+    }
 });
 
-// Close mobile menu when clicking on a nav link
+// Close mobile menu when clicking on actual page links (not dropdown toggles)
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+        // Check if this link is NOT a dropdown toggle
+        const isDropdownToggle = link.parentElement.classList.contains('dropdown');
+        
+        if (!isDropdownToggle && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+    });
+});
+
+// Close menu when clicking on dropdown menu items (actual links inside dropdowns)
+document.querySelectorAll('.dropdown-menu a').forEach(dropdownLink => {
+    dropdownLink.addEventListener('click', () => {
         if (navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
             document.body.classList.remove('no-scroll');
+            
+            // Also close all dropdowns
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
         }
     });
 });
@@ -32,7 +58,9 @@ dropdowns.forEach(dropdown => {
     link.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
             e.preventDefault();
-            dropdown.classList.toggle('active');
+            e.stopPropagation(); // Prevent event from bubbling up
+            
+            const wasActive = dropdown.classList.contains('active');
             
             // Close other dropdowns
             dropdowns.forEach(otherDropdown => {
@@ -40,6 +68,20 @@ dropdowns.forEach(dropdown => {
                     otherDropdown.classList.remove('active');
                 }
             });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+            
+            // If dropdown was just opened, scroll it into view
+            if (!wasActive && dropdown.classList.contains('active')) {
+                setTimeout(() => {
+                    // Scroll the dropdown into view smoothly
+                    dropdown.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest' 
+                    });
+                }, 350); // Wait for dropdown animation to complete
+            }
         }
     });
     
@@ -286,3 +328,4 @@ window.addEventListener('resize', () => {
         document.body.classList.remove('resize-animation-stopper');
     }, 400);
 });
+
