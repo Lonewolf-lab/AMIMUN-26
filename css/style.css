@@ -1227,8 +1227,7 @@
 
 /* Chronicles Page Styles */
 .chronicles-hero {
-    background: linear-gradient(rgba(0, 31, 84, 0.9), rgba(0, 31, 84, 0.8)), 
-                url('../images/chronicles-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, #1451a0 0%, #114171 100%), url('images/hero-bg-2.jpg') no-repeat center center/cover;
     height: 60vh;
     display: flex;
     align-items: center;

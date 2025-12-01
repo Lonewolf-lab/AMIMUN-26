@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMIMUN Chronicles - AMIMUN 2025</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <style>
         /* Chronicles Page Styles */
         .chronicles-hero {
-            background: linear-gradient(rgba(0, 83, 156, 0.85), rgba(0, 51, 102, 0.9)), 
-                        url('../images/chronicles-bg.jpg') no-repeat center center/cover;
+            background: linear-gradient(135deg, #1451a0 0%, #114171 100%), url('images/hero-bg-2.jpg') no-repeat center center/cover;
             height: 60vh;
             display: flex;
             align-items: center;
@@ -51,7 +48,7 @@
         }
 
         .chronicles-hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 4.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
@@ -94,7 +91,7 @@
             color: #00339c;
             position: relative;
             padding-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 2.5rem;
             font-weight: 600;
         }
@@ -138,6 +135,10 @@
         .masonry-item.wide {
             grid-column: span 2;
         }
+        
+        .masonry-item.half-width-larger {
+            grid-column: span 1.5;
+        }
 
         .masonry-item.tall {
             grid-row: span 2;
@@ -165,7 +166,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 51, 102, 0.9) 0%, transparent 80%);
+            background: linear-gradient(to top, rgba(135, 206, 250, 0.9) 0%, rgba(173, 216, 230, 0.6) 40%, transparent 70%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -186,15 +187,18 @@
             margin-bottom: 0.5rem;
             transform: translateY(20px);
             transition: transform 0.4s ease;
+            color: #003366;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
         }
 
         .masonry-category {
             font-family: 'Poppins', sans-serif;
             font-size: 0.95rem;
             opacity: 0.95;
-            font-weight: 300;
+            font-weight: 400;
             transform: translateY(20px);
             transition: transform 0.4s ease 0.1s;
+            color: #004080;
         }
 
         .masonry-item:hover .masonry-title,
@@ -202,11 +206,23 @@
             transform: translateY(0);
         }
 
+        /* Last row special styling */
+        .last-row-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr;
+            grid-gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 1024px) {
             .masonry-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-auto-rows: 260px;
+            }
+
+            .last-row-container {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -239,6 +255,10 @@
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .last-row-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -311,7 +331,6 @@
         <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
         <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
         <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
       </ul>
     </div>
   </nav>
@@ -319,8 +338,8 @@
     <!-- Hero Section -->
     <section class="chronicles-hero">
         <div class="hero-content">
-            <h1>AMIMUN Chronicles</h1>
-            <p>Relive the unforgettable moments and inspiring memories from AMIMUN 2024 through our curated photo gallery</p>
+            <h1 style="color: white;">AMIMUN Chronicles</h1>
+            <p style="color: white;">Relive the unforgettable moments and inspiring memories from AMIMUN 2025 through our curated photo gallery</p>
         </div>
     </section>
 
@@ -333,7 +352,7 @@
             <div class="masonry-grid">
                 <!-- Large featured image -->
                 <div class="masonry-item large">
-                    <img src="images/gallery/opening-ceremony.jpg" alt="Opening Ceremony" class="masonry-img">
+                    <img src="images/chronicles/opening-ceremony.JPG" alt="Opening Ceremony" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Grand Opening</h3>
                         <div class="masonry-category">Inauguration Ceremony</div>
@@ -342,61 +361,52 @@
 
                 <!-- Regular items -->
                 <div class="masonry-item">
-                    <img src="images/gallery/debate-session.jpg" alt="Committee Session" class="masonry-img">
+                    <img src="images/chronicles/secretariat.JPG" alt="Committee Session" class="masonry-img">
                     <div class="masonry-overlay">
-                        <h3 class="masonry-title">Intense Debate</h3>
-                        <div class="masonry-category">Committee Session</div>
+                        <h3 class="masonry-title">Secretariat members</h3>
+                        <div class="masonry-category">The secretariat members of AMIMUN</div>
                     </div>
                 </div>
 
                 <!-- Tall image -->
                 <div class="masonry-item tall">
-                    <img src="images/gallery/cultural-night.jpg" alt="Cultural Night" class="masonry-img">
+                    <img src="images/chronicles/decoration.jpg" alt="Cultural Night" class="masonry-img">
                     <div class="masonry-overlay">
-                        <h3 class="masonry-title">Cultural Night</h3>
-                        <div class="masonry-category">Performances & Celebrations</div>
+                        <h3 class="masonry-title">Decoration</h3>
+                        <div class="masonry-category">Meticulously crafted decorations enhancing the AMIMUN experience</div>
                     </div>
                 </div>
 
                 <!-- Wide image -->
                 <div class="masonry-item wide">
-                    <img src="images/gallery/group-photo.jpg" alt="Group Photo" class="masonry-img">
+                    <img src="images/chronicles/group1.JPG" alt="Group Photo" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Delegates Gathering</h3>
                         <div class="masonry-category">Group Photo Session</div>
                     </div>
                 </div>
 
-                <!-- Regular square image -->
-                <div class="masonry-item">
-                    <img src="images/gallery/award-ceremony.jpg" alt="Award Ceremony" class="masonry-img">
+                <!-- Wide award ceremony image -->
+                <div class="masonry-item wide">
+                    <img src="images/chronicles/award.JPG" alt="Award Ceremony" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Award Ceremony</h3>
                         <div class="masonry-category">Recognizing Excellence</div>
                     </div>
                 </div>
 
-                <!-- Regular item -->
-                <div class="masonry-item">
-                    <img src="images/gallery/workshop.jpg" alt="Workshop" class="masonry-img">
-                    <div class="masonry-overlay">
-                        <h3 class="masonry-title">Interactive Workshop</h3>
-                        <div class="masonry-category">Learning & Development</div>
-                    </div>
-                </div>
-
                 <!-- Regular square image -->
                 <div class="masonry-item">
-                    <img src="images/gallery/closing-ceremony.jpg" alt="Closing Ceremony" class="masonry-img">
+                    <img src="images/chronicles/ip.JPG" alt="Closing Ceremony" class="masonry-img">
                     <div class="masonry-overlay">
-                        <h3 class="masonry-title">Closing Ceremony</h3>
-                        <div class="masonry-category">Farewell & Thanks</div>
+                        <h3 class="masonry-title">IP Team</h3>
+                        <div class="masonry-category">The International Press Team</div>
                     </div>
                 </div>
 
                 <!-- Tall image -->
                 <div class="masonry-item tall">
-                    <img src="images/gallery/guest-speaker.jpg" alt="Guest Speaker" class="masonry-img">
+                    <img src="images/chronicles/guest-speaker2.jpg" alt="Guest Speaker" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Inspirational Talk</h3>
                         <div class="masonry-category">Guest Speaker Session</div>
@@ -404,58 +414,51 @@
                 </div>
 
                 <div class="masonry-item wide">
-                    <img src="images/gallery/delegates-discussion.jpg" alt="Delegates in Discussion" class="masonry-img">
+                    <img src="images/chronicles/guest-panel.JPG" alt="Delegates in Discussion" class="masonry-img">
                     <div class="masonry-overlay">
-                        <h3 class="masonry-title">Engaging Discussions</h3>
-                        <div class="masonry-category">Committee Deliberations</div>
+                        <h3 class="masonry-title">Guest Panel</h3>
+                        <div class="masonry-category">AMIMUN Elaborations</div>
                     </div>
                 </div>
 
-                <div class="masonry-item">
-                    <img src="images/gallery/group-activity.jpg" alt="Group Activity" class="masonry-img">
+                <div class="masonry-item wide">
+                    <img src="images/chronicles/team-building.JPG" alt="Team Building" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Team Building</h3>
                         <div class="masonry-category">Interactive Session</div>
                     </div>
                 </div>
 
-                <div class="masonry-item">
-                    <img src="images/gallery/networking.jpg" alt="Networking Session" class="masonry-img">
-                    <div class="masonry-overlay">
-                        <h3 class="masonry-title">Networking</h3>
-                        <div class="masonry-category">Building Connections</div>
-                    </div>
-                </div>
-
                 <div class="masonry-item large">
-                    <img src="images/gallery/group-photo-2.jpg" alt="Group Photo 2" class="masonry-img">
+                    <img src="images/chronicles/guiding-light.jpeg" alt="Group Photo 2" class="masonry-img">
                     <div class="masonry-overlay">
-                        <h3 class="masonry-title">Memories Captured</h3>
-                        <div class="masonry-category">Group Moments</div>
+                        <h3 class="masonry-title">Our Guiding Light</h3>
+                        <div class="masonry-category">Our Leading faculty that guided us through AMIMUN</div>
                     </div>
                 </div>
 
                 <!-- Tall image -->
                 <div class="masonry-item tall">
-                    <img src="images/gallery/speaker-session.jpg" alt="Guest Speaker" class="masonry-img">
+                    <img src="images/chronicles/guest-speaker.jpg" alt="Guest Speaker" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Keynote Address</h3>
                         <div class="masonry-category">Guest Speaker Session</div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Wide image -->
-                <div class="masonry-item wide">
-                    <img src="images/gallery/delegates-interaction.jpg" alt="Delegates Interaction" class="masonry-img">
+            <!-- Last row with larger side-by-side items -->
+            <div class="last-row-container" style="padding: 0 2rem;">
+                <div class="masonry-item">
+                    <img src="images/chronicles/delegates-discussion.JPG" alt="Delegates Interaction" class="masonry-img">
                     <div class="masonry-overlay">
-                        <h3 class="masonry-title">Networking</h3>
-                        <div class="masonry-category">Delegates Interaction</div>
+                        <h3 class="masonry-title">Delegates Discussion</h3>
+                        <div class="masonry-category">Interaction between delegates regarding respective portfolios </div>
                     </div>
                 </div>
 
-                <!-- Regular image to fill space -->
                 <div class="masonry-item">
-                    <img src="images/gallery/memorable-moment.jpg" alt="Memorable Moment" class="masonry-img">
+                    <img src="images/chronicles/memorable.jpg" alt="Memorable Moment" class="masonry-img">
                     <div class="masonry-overlay">
                         <h3 class="masonry-title">Memorable Moment</h3>
                         <div class="masonry-category">Special Memories</div>
@@ -466,41 +469,29 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>AMIMUN 2025</h3>
-                    <p>Inspiring Global Leaders Through Diplomacy</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="committees.html">Committees</a></li>
-                        <li><a href="secretariat.html">Secretariat</a></li>
-                        <li><a href="chronicles.html">Chronicles</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-envelope"></i> info@amimun2025.com</p>
-                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 AMIMUN. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+<footer class="footer">
+      <div class="container">
+          <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+              <div class="footer-about" style="flex: 1; min-width: 300px; margin-bottom: 30px;">
+                  <h3>About AMIMUN</h3>
+                  <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
+              </div>
+              <div class="footer-links" style="margin-left: auto; min-width: 200px;">
+                  <h3>Quick Links</h3>
+                  <ul style="list-style: none; padding: 0; margin: 0;">
+                      <li style="margin-bottom: 10px;"><a href="index.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
+                      <li style="margin-bottom: 10px;"><a href="why-amimun.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+                      <li style="margin-bottom: 10px;"><a href="secretariat.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Our Team</a></li>
+                      <li style="margin-bottom: 10px;"><a href="committees.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Committees</a></li>
+                      <li><a href="#contact" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Contact Us</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p style="color: white;">&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
+          </div>
+      </div>
+  </footer>
 
     <!-- JavaScript -->
      <script src="js/script.js"></script>
