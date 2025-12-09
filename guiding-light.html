@@ -338,7 +338,47 @@
             .member-image {
                 height: 250px;
             }
+
+            /* Mobile footer styles */
+            .footer-content {
+                flex-direction: column !important;
+                padding: 20px 15px !important;
+            }
+            .footer-about, .footer-links {
+                min-width: 100% !important;
+                margin: 0 0 25px 0 !important;
+                text-align: center;
+            }
+            .footer-links {
+                margin-left: 0 !important;
+                margin-top: 15px !important;
+            }
+            .footer-bottom p {
+                text-align: center !important;
+                font-size: 0.9rem !important;
+                padding: 0 10px !important;
+                line-height: 1.5 !important;
+            }
+            .footer h3 {
+                margin-bottom: 15px !important;
+                font-size: 1.3rem !important;
+            }
+            .footer p, .footer a {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+            }
+            .footer-links ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 10px;
+            }
+            .footer-links li {
+                margin: 0 10px 10px 0 !important;
+            }
         }
+
     </style>
 </head>
 <body>
@@ -827,20 +867,6 @@
             window.addEventListener('scroll', animateOnScroll);
         }
 
-        // Mobile menu toggle
-        function setupMobileMenu() {
-            const navToggle = document.getElementById('navToggle');
-            const navMenu = document.getElementById('navMenu');
-            
-            if (navToggle && navMenu) {
-                navToggle.addEventListener('click', () => {
-                    navToggle.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    document.body.classList.toggle('no-scroll');
-                });
-            }
-        }
-
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             // Animate page elements on load
@@ -852,7 +878,6 @@
             setupSectionToggles();
             initFirstSection();
             setupScrollAnimations();
-            setupMobileMenu();
             
             // Force a reflow to ensure animations trigger
             document.body.offsetHeight;

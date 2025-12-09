@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
         /* Mobile Navigation Bar Styles */
         @media (max-width: 768px) {
             .navbar .logo {
@@ -230,15 +235,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: transparent; /* Remove gradient background */
+            background: transparent;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 30px;
             color: rgb(36, 79, 188);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add text shadow for better readability */
-            color: #0a2d6d; /* Deep blue that works well on light backgrounds */
-            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3); /* White shadow for better contrast */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            color: #0a2d6d;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
         }
 
         .member-info {
@@ -371,11 +376,24 @@
 
             .advisory-grid {
                 grid-template-columns: 1fr;
-                max-width: 500px;
+                max-width: 100%;
+                padding: 0 15px;
+                gap: 30px;
             }
 
             .member-card {
-                margin-bottom: 30px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .member-image {
+                height: 300px;
+            }
+
+            .member-image img {
+                max-width: 100%;
+                width: 100%;
             }
         }
 
@@ -391,177 +409,237 @@
             .member-info {
                 padding: 20px 15px;
             }
+            
+            .advisory-grid {
+                padding: 0 10px;
+            }
         }
+        
         /* Update these styles in your existing CSS */
         .member-image {
-    height: 380px; /* Increased from 300px */
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0; /* Prevent image from shrinking */
-}
+            height: 380px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-/* Adjust card layout to accommodate larger image */
-.member-card {
-    min-height: 800px; /* Increased from 700px */
-    display: flex;
-    flex-direction: column;
-}
+        /* Adjust card layout to accommodate larger image */
+        .member-card {
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* Make the image fill the container */
-.member-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
+        /* Make the image fill the container */
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
 
-/* Adjust the info section to take remaining space */
-.member-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-}
+        /* Adjust the info section to take remaining space */
+        .member-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+        }
 
-/* Ensure message area takes available space */
-.member-message {
-    flex: 1;
-    overflow-y: auto;
-    margin: 15px 0;
-    padding-right: 10px;
-}
+        /* Ensure message area takes available space */
+        .member-message {
+            flex: 1;
+            overflow-y: auto;
+            margin: 15px 0;
+            padding-right: 10px;
+        }
 
-.member-overlay h3 {
-    color: #0a2d6d; /* Dark blue for names */
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
-    margin-bottom: 5px;
-    font-weight: 700; /* Slightly bolder for better readability */
-}
+        .member-overlay h3 {
+            color: #0a2d6d;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
 
-.member-overlay p {
-    color: #1a4b8c; /* Slightly lighter blue for designation */
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
-    margin: 0;
-    font-weight: 600;
-}
+        .member-overlay p {
+            color: #1a4b8c;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+            margin: 0;
+            font-weight: 600;
+        }
 
-/* Adjust card grid for better spacing */
-.advisory-grid {
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 45px;
-    padding: 0 30px;
-}
-.member-designation {
-    color: var(--accent-color);
-    font-weight: 600;
-    margin: 15px 0;
-    display: block;
-    font-size: 1.1rem;
-}
+        /* Adjust card grid for better spacing */
+        .advisory-grid {
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 45px;
+            padding: 0 30px;
+        }
+        
+        .member-designation {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 15px 0;
+            display: block;
+            font-size: 1.1rem;
+        }
 
-.member-message {
-    color: #555;
-    line-height: 1.8; /* Increased line height */
-    margin: 15px 0 25px;
-    font-size: 0.95rem;
-    text-align: left;
-    max-height: 300px; /* Increased max height */
-    overflow-y: auto;
-    padding: 0 10px 15px 0;
-    flex-grow: 1;
-}
+        .member-message {
+            color: #555;
+            line-height: 1.8;
+            margin: 15px 0 25px;
+            font-size: 0.95rem;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 0 10px 15px 0;
+            flex-grow: 1;
+        }
 
-/* Add more space between cards */
-.advisory-grid {
-    gap: 40px; /* Increased from 30px */
-    padding: 0 30px; /* Added side padding */
-}
+        /* Add more space between cards */
+        .advisory-grid {
+            gap: 40px;
+            padding: 0 30px;
+        }
 
-/* Make the cards taller to accommodate messages */
-.member-card {
-    min-height: 700px; /* Increased minimum height */
-    display: flex;
-    flex-direction: column;
-}
+        /* Make the cards taller to accommodate messages */
+        .member-card {
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* Improve message paragraph spacing */
-.member-message p {
-    margin-bottom: 20px; /* Increased bottom margin */
-    padding-left: 20px;
-    position: relative;
-}
+        /* Improve message paragraph spacing */
+        .member-message p {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
 
-/* Add some breathing room to the section */
-.advisory-section {
-    padding: 100px 0 120px;
-}
+        /* Add some breathing room to the section */
+        .advisory-section {
+            padding: 100px 0 120px;
+        }
 
-/* Adjust the header spacing */
-.page-header {
-    padding: 200px 0 150px;
-}
+        /* Adjust the header spacing */
+        .page-header {
+            padding: 200px 0 150px;
+        }
 
-/* Make the message scrollbar more subtle */
-.member-message::-webkit-scrollbar {
-    width: 4px;
-}
+        /* Make the message scrollbar more subtle */
+        .member-message::-webkit-scrollbar {
+            width: 4px;
+        }
 
-/* Add a subtle hover effect to cards */
-.member-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        /* Add a subtle hover effect to cards */
+        .member-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
-}
+        /* Mobile footer styles */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column !important;
+                padding: 20px 15px !important;
+            }
+            .footer-about, .footer-links {
+                min-width: 100% !important;
+                margin: 0 0 25px 0 !important;
+                text-align: center;
+            }
+            .footer-links {
+                margin-left: 0 !important;
+                margin-top: 15px !important;
+            }
+            .footer-bottom p {
+                text-align: center !important;
+                font-size: 0.9rem !important;
+                padding: 0 10px !important;
+                line-height: 1.5 !important;
+            }
+            .footer h3 {
+                margin-bottom: 15px !important;
+                font-size: 1.3rem !important;
+            }
+            .footer p, .footer a {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+            }
+            .footer-links ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 10px;
+            }
+            .footer-links li {
+                margin: 0 10px 10px 0 !important;
+            }
+            
+            /* CRITICAL FIX FOR MOBILE CARD ALIGNMENT */
+            .advisory-section .container {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .advisory-grid {
+                padding: 0 15px !important;
+                margin: 0 !important;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .member-card {
+                margin: 0 auto !important;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 <body>
-      <!-- Navigation -->
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-        <a href="#" class="logo">
-            <img src="images/home/Amity_University_logo.png" alt="Amity University Logo" style="height: 40px; width: auto; margin-right: 10px; vertical-align: middle;">
-            <span style="vertical-align: middle;">AMIMUN'26</span>
-          </a>
-      <div class="nav-toggle" id="navToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-        <li class="nav-item dropdown">
-          <a href="#about" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="why-amimun.html">Why AMIMUN</a></li>
-            <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="chronicles.html">AMIMUN Chronicles</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a href="#team" class="nav-link">Our Team <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="guiding-light.html">Our Guiding Light</a></li>
-            <li><a href="advisory-board.html">Advisory Board</a></li>
-            <li><a href="secretariat.html">Secretariat</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
-        <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
-        <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/home/Amity_University_logo.png" alt="Amity University Logo" style="height: 40px; width: auto; margin-right: 10px; vertical-align: middle;">
+                <span style="vertical-align: middle;">AMIMUN'26</span>
+            </a>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#about" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
+                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="chronicles.html">AMIMUN Chronicles</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#team" class="nav-link">Our Team <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
+                        <li><a href="advisory-board.html">Advisory Board</a></li>
+                        <li><a href="secretariat.html">Secretariat</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
+                <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
+                <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <header class="page-header">
         <div class="container">
-            <h1 style = "color: whitesmoke;">Meet Our Advisory Board</h1>
-            <p style = "color: whitesmoke;">Guiding AMIMUN 2026 with wisdom, experience, and vision</p>
+            <h1 style="color: whitesmoke;">Meet Our Advisory Board</h1>
+            <p style="color: whitesmoke;">Guiding AMIMUN 2026 with wisdom, experience, and vision</p>
         </div>
     </header>
 
@@ -585,8 +663,8 @@
                             <p>Dear AMIMUN Family,</p>
                             <p>As I sit to write this message, I find myself reflecting on the journey AMIMUN has given me — a journey that has shaped my confidence, my perspective, and the person I have become. What began years ago with me entering my first AMIMUN conference as a nervous delegate grew into something far greater than I could have imagined. AMIMUN became a place where I found support, friendship, and countless opportunities to learn and grow.</p>
                             <p>What makes AMIMUN truly special is not just the debates or the committees, but the people who bring life to it — the delegates who challenge themselves, the volunteers who work quietly behind the scenes, and the leaders who guide with care and purpose. Together, each of us contributes to a legacy built on discipline, collaboration, and a shared commitment to doing better.</p>
-                            <p>From my early days as a delegate to serving as the Secretary-General of AMIMUN’24, this journey has been one of steady learning and meaningful moments. As I watch AMIMUN’26 take shape, I feel grateful to continue being part of its story. The theme of this edition, “Virtus Per Disciplinam — Excellence Through Discipline,” reflects what AMIMUN has always stood for: growth rooted in consistency, sincerity, and effort.</p>
-                            <p>To everyone who is a part of AMIMUN’26, I encourage you to embrace this experience fully. Step into it with curiosity, openness, and the willingness to challenge yourself. This platform has a way of leaving a lasting impact, and I hope it does the same for you as it did for me.</p>
+                            <p>From my early days as a delegate to serving as the Secretary-General of AMIMUN'24, this journey has been one of steady learning and meaningful moments. As I watch AMIMUN'26 take shape, I feel grateful to continue being part of its story. The theme of this edition, "Virtus Per Disciplinam — Excellence Through Discipline," reflects what AMIMUN has always stood for: growth rooted in consistency, sincerity, and effort.</p>
+                            <p>To everyone who is a part of AMIMUN'26, I encourage you to embrace this experience fully. Step into it with curiosity, openness, and the willingness to challenge yourself. This platform has a way of leaving a lasting impact, and I hope it does the same for you as it did for me.</p>
                             <p>With warm regards,<br>Gauri Sareen</p>
                         </div>
                         <div class="social-links">
@@ -595,105 +673,105 @@
                     </div>
                 </div>
 
-<!-- Member 2 - Sagar Chamarti -->
-<div class="member-card">
-    <div class="member-image">
-        <img src="images/advisory-board/Sagar Chamarti.jpg" alt="Member Name">
-    </div>
-    <div class="member-details">
-        <h3>Sagar Chamarti</h3>
-        <p class="member-role">Director General, AMIMUN'24</p>
-    </div>
-    <div class="member-info">
-        <div class="member-message">
-            <p>Dear Delegates,</p>
-            <p>It is an honour to welcome you to the Amity International Model United Nations Conference 2026. Having served as the Director General of AMIMUN’24, I have witnessed firsthand how the power of dialogue, diplomacy, and disciplined engagement can shape young minds and inspire meaningful global perspectives.</p>
-            <p>Our previous theme, “Optimus ad Optimorum,” encouraged each of us to pursue excellence with purpose. Today, AMIMUN’26 carries this legacy forward under the guiding principle of *“Virtus Per Disciplinam — Excellence Through Discipline.”* This theme reflects a simple yet powerful truth: progress is built not only on ideas, but on the discipline to refine them, act on them, and sustain them.</p>
-            <p>As delegates, you stand at the heart of this conference. You are not merely participants — you are emerging leaders with the ability to influence thought, question norms, and propose solutions that mirror the world we hope to build. Your discussions over these three days are opportunities to learn, collaborate, and grow into voices that matter.</p>
-            <p>To the Secretariat and Organizing Committee of AMIMUN’26, I extend my heartfelt appreciation. Your dedication, teamwork, and steady commitment have shaped this edition into an experience that reflects the values AMIMUN has upheld over the years. Your efforts ensure that this platform continues to thrive and inspire future leaders.</p>
-            <p>Delegates, I hope your debates challenge you, your resolutions carry purpose, and your experience at AMIMUN’26 stays with you long beyond the conference. May you approach each session with clarity, integrity, and the discipline that drives true excellence.</p>
-            <p>Warm Regards,<br>Sagar Chamarti</p>
-        </div>
-        <div class="social-links">
-            <!-- Social links here -->
-        </div>
-    </div>
-</div>
+                <!-- Member 2 - Sagar Chamarti -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="images/advisory-board/Sagar Chamarti.jpg" alt="Member Name">
+                    </div>
+                    <div class="member-details">
+                        <h3>Sagar Chamarti</h3>
+                        <p class="member-role">Director General, AMIMUN'24</p>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-message">
+                            <p>Dear Delegates,</p>
+                            <p>It is an honour to welcome you to the Amity International Model United Nations Conference 2026. Having served as the Director General of AMIMUN'24, I have witnessed firsthand how the power of dialogue, diplomacy, and disciplined engagement can shape young minds and inspire meaningful global perspectives.</p>
+                            <p>Our previous theme, "Optimus ad Optimorum," encouraged each of us to pursue excellence with purpose. Today, AMIMUN'26 carries this legacy forward under the guiding principle of *"Virtus Per Disciplinam — Excellence Through Discipline."* This theme reflects a simple yet powerful truth: progress is built not only on ideas, but on the discipline to refine them, act on them, and sustain them.</p>
+                            <p>As delegates, you stand at the heart of this conference. You are not merely participants — you are emerging leaders with the ability to influence thought, question norms, and propose solutions that mirror the world we hope to build. Your discussions over these three days are opportunities to learn, collaborate, and grow into voices that matter.</p>
+                            <p>To the Secretariat and Organizing Committee of AMIMUN'26, I extend my heartfelt appreciation. Your dedication, teamwork, and steady commitment have shaped this edition into an experience that reflects the values AMIMUN has upheld over the years. Your efforts ensure that this platform continues to thrive and inspire future leaders.</p>
+                            <p>Delegates, I hope your debates challenge you, your resolutions carry purpose, and your experience at AMIMUN'26 stays with you long beyond the conference. May you approach each session with clarity, integrity, and the discipline that drives true excellence.</p>
+                            <p>Warm Regards,<br>Sagar Chamarti</p>
+                        </div>
+                        <div class="social-links">
+                            <!-- Social links here -->
+                        </div>
+                    </div>
+                </div>
 
-<!-- Member 3 - Jai Yadav -->
-<div class="member-card">
-    <div class="member-image">
-        <img src="images/advisory-board/jay-yadav.jpg" alt="Jai Yadav">
-    </div>
-    <div class="member-details">
-        <h3>Jay Yadav</h3>
-        <p class="member-role">Director General, AMIMUN'25</p>
-    </div>
-    <div class="member-info">
-        <div class="member-message">
-            <p>Dear AMIMUN Delegates,</p>
-            <p>Each year, AMIMUN evolves into something greater than a conference — it becomes a space where young minds come together with the intention to understand, question, and shape the world around them. What truly defines AMIMUN is not only the enthusiasm for diplomacy or the pursuit of global awareness, but the willingness of its delegates to rethink perspectives, approach challenges with openness, and imagine solutions grounded in empathy and clarity. Being part of this journey has been an honour, and witnessing its steady growth has been deeply inspiring.</p>
-            <p>As you enter AMIMUN’26, I encourage you to value the strength of dialogue. It is through honest conversation that differences soften, understanding expands, and meaningful progress begins. Diplomacy has never been about winning an argument — it is about finding common purpose and turning diverse opinions into collective action. Let every committee session be an opportunity to learn something new, step outside your comfort zone, and grow both as individuals and as global citizens.</p>
-            <p>With every speech you deliver and every resolution you craft, remember that you are contributing to a legacy built on responsibility, unity, and disciplined effort. AMIMUN’26 invites you to embody its theme — to let discipline guide your ideas, refine your approach, and elevate your impact. May this conference remind you that the future is not something we simply anticipate, but something we actively build through intention and collaboration.</p>
-            <p>Warm Regards,<br>Jai Yadav</p>
-        </div>
-        <div class="social-links">
-            <!-- Social links here -->
-        </div>
-    </div>
-</div>
+                <!-- Member 3 - Jai Yadav -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="images/advisory-board/jay-yadav.jpg" alt="Jai Yadav">
+                    </div>
+                    <div class="member-details">
+                        <h3>Jay Yadav</h3>
+                        <p class="member-role">Director General, AMIMUN'25</p>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-message">
+                            <p>Dear AMIMUN Delegates,</p>
+                            <p>Each year, AMIMUN evolves into something greater than a conference — it becomes a space where young minds come together with the intention to understand, question, and shape the world around them. What truly defines AMIMUN is not only the enthusiasm for diplomacy or the pursuit of global awareness, but the willingness of its delegates to rethink perspectives, approach challenges with openness, and imagine solutions grounded in empathy and clarity. Being part of this journey has been an honour, and witnessing its steady growth has been deeply inspiring.</p>
+                            <p>As you enter AMIMUN'26, I encourage you to value the strength of dialogue. It is through honest conversation that differences soften, understanding expands, and meaningful progress begins. Diplomacy has never been about winning an argument — it is about finding common purpose and turning diverse opinions into collective action. Let every committee session be an opportunity to learn something new, step outside your comfort zone, and grow both as individuals and as global citizens.</p>
+                            <p>With every speech you deliver and every resolution you craft, remember that you are contributing to a legacy built on responsibility, unity, and disciplined effort. AMIMUN'26 invites you to embody its theme — to let discipline guide your ideas, refine your approach, and elevate your impact. May this conference remind you that the future is not something we simply anticipate, but something we actively build through intention and collaboration.</p>
+                            <p>Warm Regards,<br>Jai Yadav</p>
+                        </div>
+                        <div class="social-links">
+                            <!-- Social links here -->
+                        </div>
+                    </div>
+                </div>
 
-<!-- Member 4 - Amishi Arora -->
-<div class="member-card">
-    <div class="member-image">
-        <img src="images/advisory-board/Amishi.png" alt="Member Name">
-    </div>
-    <div class="member-details">
-        <h3>Amishi Arora </h3>
-        <p class="member-role">Chief Advisor</p>
-    </div>
-    <div class="member-info">
-        <div class="member-message">
-            <p>Dear AMIMUN Family,</p>
-            <p>The essence of AMIMUN has always extended beyond its committees and debates. It lives in the collective spirit of cooperation, respect, and curiosity that each one of you brings to this conference. Every edition reminds us that diplomacy does not begin on global stages — it begins here, in these rooms, with your willingness to speak, listen, and work toward shared understanding.</p>
-            <p>What truly sets AMIMUN apart is the sense of community it creates. It is a space where ideas are welcomed, diverse viewpoints are encouraged, and differences become opportunities to learn from one another. In this environment, you discover not only your capacity to lead, but also the importance of listening with patience and humility. The connections you build and the lessons you take away will remain with you long after the conference ends, becoming part of the growing legacy that AMIMUN cherishes year after year.</p>
-            <p>As emerging leaders and thoughtful changemakers, your presence at AMIMUN’26 carries significance. Leadership is not defined by titles or applause — it is defined by responsibility, integrity, and the discipline to act with purpose. Let this conference be a reminder that the small steps you take today — the conversations, the compromises, the insights — contribute to the world you will shape tomorrow.</p>
-            <p>Carry forward the camaraderie, the learning, and the spirit of AMIMUN wherever you go. You will find that this experience becomes a quiet but steady influence on the choices you make and the future you build.</p>
-            <p>With Best Wishes,<br>Amishi Arora</p>
-        </div>
-        <div class="social-links">
-            <!-- Social links here -->
-        </div>
-    </div>
-</div>
+                <!-- Member 4 - Amishi Arora -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="images/advisory-board/Amishi.png" alt="Member Name">
+                    </div>
+                    <div class="member-details">
+                        <h3>Amishi Arora </h3>
+                        <p class="member-role">Chief Advisor</p>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-message">
+                            <p>Dear AMIMUN Family,</p>
+                            <p>The essence of AMIMUN has always extended beyond its committees and debates. It lives in the collective spirit of cooperation, respect, and curiosity that each one of you brings to this conference. Every edition reminds us that diplomacy does not begin on global stages — it begins here, in these rooms, with your willingness to speak, listen, and work toward shared understanding.</p>
+                            <p>What truly sets AMIMUN apart is the sense of community it creates. It is a space where ideas are welcomed, diverse viewpoints are encouraged, and differences become opportunities to learn from one another. In this environment, you discover not only your capacity to lead, but also the importance of listening with patience and humility. The connections you build and the lessons you take away will remain with you long after the conference ends, becoming part of the growing legacy that AMIMUN cherishes year after year.</p>
+                            <p>As emerging leaders and thoughtful changemakers, your presence at AMIMUN'26 carries significance. Leadership is not defined by titles or applause — it is defined by responsibility, integrity, and the discipline to act with purpose. Let this conference be a reminder that the small steps you take today — the conversations, the compromises, the insights — contribute to the world you will shape tomorrow</p>
+                            <p>Carry forward the camaraderie, the learning, and the spirit of AMIMUN wherever you go. You will find that this experience becomes a quiet but steady influence on the choices you make and the future you build.</p>
+                            <p>With Best Wishes,<br>Amishi Arora</p>
+                        </div>
+                        <div class="social-links">
+                            <!-- Social links here -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!--Footer-->
-<footer class="footer">
-      <div class="container">
-          <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-              <div class="footer-about" style="flex: 1; min-width: 300px; margin-bottom: 30px;">
-                  <h3>About AMIMUN</h3>
-                  <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
-              </div>
-              <div class="footer-links" style="margin-left: auto; min-width: 200px;">
-                  <h3>Quick Links</h3>
-                  <ul style="list-style: none; padding: 0; margin: 0;">
-                      <li style="margin-bottom: 10px;"><a href="index.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
-                      <li style="margin-bottom: 10px;"><a href="why-amimun.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
-                      <li style="margin-bottom: 10px;"><a href="secretariat.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Our Team</a></li>
-                      <li style="margin-bottom: 10px;"><a href="committees.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Committees</a></li>
-                      <li><a href="#contact" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Contact Us</a></li>
-                  </ul>
-              </div>
-          </div>
-          <div class="footer-bottom">
-              <p style="color: white;">&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
-          </div>
-      </div>
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+                <div class="footer-about" style="flex: 1; min-width: 300px; margin-bottom: 30px;">
+                    <h3>About AMIMUN</h3>
+                    <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
+                </div>
+                <div class="footer-links" style="margin-left: auto; min-width: 200px;">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
+                        <li style="margin-bottom: 10px;"><a href="why-amimun.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+                        <li style="margin-bottom: 10px;"><a href="secretariat.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Our Team</a></li>
+                        <li style="margin-bottom: 10px;"><a href="committees.html" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Committees</a></li>
+                        <li><a href="#contact" style="color: #fff; text-decoration: none; transition: color 0.3s ease;">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: white;">&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
     <script>
