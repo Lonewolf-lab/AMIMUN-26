@@ -276,50 +276,20 @@
         letter-spacing: 1px !important;
       }
     }
+
+    /* Updated AGENDAS Banner Styling */
     .agendas-marquee-container {
       overflow: hidden;
       width: 100%;
-      background: linear-gradient(
-        135deg,
-        #001f54 0%,
-        #003d82 50%,
-        #00539c 100%
-      );
+      background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 50%, #00a3d9 100%);
       position: relative;
-      box-shadow: 0 4px 20px rgba(0, 31, 84, 0.15);
-      border-top: 3px solid #1282a2;
-      border-bottom: 3px solid #1282a2;
+      border: none;
       margin: 0;
-      padding: 0 20px;
+      padding: 0;
       min-height: 70px;
       display: flex;
       align-items: center;
-    }
-
-    /* Subtle animated overlay for depth */
-    .agendas-marquee-container::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.03) 50%,
-        transparent 100%
-      );
-      animation: shimmer 3s infinite;
-    }
-
-    @keyframes shimmer {
-      0% {
-        left: -100%;
-      }
-      100% {
-        left: 100%;
-      }
+      box-shadow: 0 4px 12px rgba(0, 180, 230, 0.3);
     }
 
     .agendas-marquee-track {
@@ -327,7 +297,7 @@
       align-items: center;
       white-space: nowrap;
       width: max-content;
-      animation: marquee-scroll 30s linear infinite;
+      animation: marquee-scroll 25s linear infinite;
       will-change: transform;
       height: 100%;
     }
@@ -344,53 +314,36 @@
     .marquee-item {
       display: inline-flex;
       align-items: center;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: 1.5px;
-      padding: 14px 45px;
-      margin: 0 20px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #003d5c;
+      letter-spacing: 3px;
+      padding: 18px 60px;
+      margin: 0 30px;
+      text-transform: uppercase;
       position: relative;
-      gap: 12px;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      gap: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    /* Professional icon styling */
-    .pulse-icon {
+    /* Megaphone icon styling */
+    .megaphone-icon {
       display: inline-block;
-      font-size: 1.3em;
-      animation: gentlePulse 2.5s ease-in-out infinite;
-      filter: drop-shadow(0 0 8px rgba(18, 130, 162, 0.6));
+      font-size: 1.5em;
+      animation: megaphonePulse 1.5s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
-    .pulse-icon:last-child {
-      animation-delay: 1.25s;
-    }
-
-    @keyframes gentlePulse {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.9;
+    @keyframes megaphonePulse {
+      0%, 100% {
+        transform: scale(1) rotate(0deg);
       }
-      50% {
-        transform: scale(1.15);
-        opacity: 1;
+      25% {
+        transform: scale(1.1) rotate(-10deg);
       }
-    }
-
-    /* Elegant hover effect */
-    .marquee-item:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 4px 15px rgba(18, 130, 162, 0.3);
-      transform: translateY(-2px);
+      75% {
+        transform: scale(1.1) rotate(10deg);
+      }
     }
 
     /* Enhanced Registration Dropdown Styling */
@@ -499,32 +452,37 @@
         padding: 15px 30px !important;
         font-size: 1.1rem !important;
       }
-    }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
+      /* Mobile Agendas Banner */
       .agendas-marquee-container {
         min-height: 60px;
         padding: 0 10px;
-        border-top: 2px solid #1282a2;
-        border-bottom: 2px solid #1282a2;
       }
 
       .marquee-item {
-        font-size: 1.1rem;
-        padding: 10px 30px;
-        margin: 0 12px;
-        letter-spacing: 1px;
+        font-size: 1.3rem;
+        padding: 12px 40px;
+        margin: 0 15px;
+        letter-spacing: 2px;
       }
 
-      .pulse-icon {
-        font-size: 1.1em;
+      .megaphone-icon {
+        font-size: 1.2em;
       }
 
       .agendas-marquee-track {
-        animation: marquee-scroll 25s linear infinite;
+        animation: marquee-scroll 20s linear infinite;
       }
     }
+
+    @media (max-width: 480px) {
+      .marquee-item {
+        font-size: 1.1rem;
+        padding: 10px 30px;
+        gap: 12px;
+      }
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
