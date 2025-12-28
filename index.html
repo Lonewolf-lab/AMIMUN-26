@@ -245,7 +245,7 @@
       /* Countdown mobile styles */
       .countdown-section {
         padding: 20px 0 !important;
-        margin: 20px 0 !important;
+        margin: 0 0 20px 0 !important;
       }
       .countdown-section h2 {
         font-size: 1.4rem !important;
@@ -384,7 +384,7 @@
     }
 
     .registration-menu {
-      background: linear-gradient(135deg, #001f54 0%, #00308f 50%, #1282a2 100%) !important;
+      background: white !important;
       border: 2px solid rgba(18, 130, 162, 0.3) !important;
       border-radius: 12px !important;
       box-shadow: 0 8px 25px rgba(0, 31, 84, 0.3) !important;
@@ -394,14 +394,14 @@
     }
 
     .registration-item {
-      color: white !important;
+      color: #001f54 !important;
       padding: 12px 20px !important;
       display: flex !important;
       align-items: center !important;
       gap: 12px !important;
       font-weight: 500 !important;
       transition: all 0.3s ease !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-bottom: 1px solid rgba(0, 31, 84, 0.1) !important;
     }
 
     .registration-item:last-child {
@@ -409,25 +409,19 @@
     }
 
     .registration-item:hover {
-      background: rgba(255, 255, 255, 0.15) !important;
+      background: rgba(0, 31, 84, 0.05) !important;
       padding-left: 25px !important;
       transform: translateX(3px) !important;
     }
 
     .registration-item i {
+      color: #6c757d !important;
       font-size: 1.1em !important;
       width: 20px !important;
       text-align: center !important;
     }
 
-    .delegate-form i {
-      color: #4fc3f7 !important;
-    }
-
-    .ip-form i {
-      color: #81c784 !important;
-    }
-
+    
     /* Enhanced dropdown animation */
     .registration-dropdown:hover .registration-menu {
       opacity: 1 !important;
@@ -488,7 +482,6 @@
       overflow: hidden;
     }
 
-    /* Video layer */
     .hero-video {
       position: absolute;
       inset: 0;
@@ -500,7 +493,7 @@
       transition: opacity 1.2s ease;
       pointer-events: none;
     }
-
+    
     /* Content overlay */
     .hero-overlay {
       position: relative;
@@ -564,53 +557,26 @@
     }
 
     .poster-popup-container {
-      background: var(--primary-color);
-      border-radius: 8px;
-      max-width: 95%;
-      max-height: 95%;
+      background: transparent;
+      border-radius: 12px;
+      max-width: 98%;
+      max-height: 98%;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 10px 30px rgba(0, 31, 84, 0.4);
+      box-shadow: none;
+      border: none;
     }
 
     .poster-popup-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 25px;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .poster-popup-header h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: white;
-    }
-
-    .poster-popup-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.3rem;
-      cursor: pointer;
-      padding: 5px;
-      border-radius: 3px;
-      transition: background 0.2s ease;
-    }
-
-    .poster-popup-close:hover {
-      background: rgba(255, 255, 255, 0.1);
+      display: none;
     }
 
     .poster-carousel {
       position: relative;
-      width: 850px;
-      height: 600px;
+      width: 600px;
+      height: 700px;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.05);
+      background: transparent;
     }
 
     .poster-carousel-track {
@@ -619,13 +585,39 @@
       height: 100%;
     }
 
+    .poster-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .poster-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .poster-dots .dot.active {
+      background: #ffc107;
+      border-color: #ffc107;
+      transform: scale(1.2);
+    }
+
     .poster-slide {
       min-width: 100%;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 10px;
     }
 
     .poster-link {
@@ -659,50 +651,63 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: var(--primary-color);
-      color: white;
-      border: none;
+      background: white;
+      color: #333;
+      border: 2px solid #e9ecef;
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
       z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .poster-carousel-btn:hover {
-      background: var(--accent-color);
+      background: #f8f9fa;
+      border-color: #dee2e6;
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
     .poster-prev {
-      left: 20px;
+      left: 0px;
     }
 
     .poster-next {
-      right: 20px;
+      right: 0px;
     }
 
     /* Mobile responsive for poster popup */
     @media (max-width: 768px) {
       .poster-popup-container {
-        max-width: 95%;
-        max-height: 95%;
+        max-width: 98%;
+        max-height: 98%;
+        background: transparent;
       }
 
       .poster-carousel {
-        width: 100%;
-        height: 300px;
+        width: 100vw;
+        height: 75vh;
+        max-height: 650px;
+        background: transparent;
       }
 
       .poster-link img {
-        max-height: 220px;
+        max-height: 70vh;
+        max-width: 90vw;
+        width: auto;
+        height: auto;
       }
 
       .poster-carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        display: none;
+      }
+
+      .poster-carousel-btn:hover {
+        background: #f8f9fa;
+        border-color: #dee2e6;
       }
 
       .poster-prev {
@@ -714,11 +719,90 @@
       }
 
       .poster-popup-header {
+        padding: 20px 25px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .poster-popup-header h3 {
+        font-size: 1.4rem;
+        color: #333;
+      }
+
+      .poster-popup-close {
+        font-size: 1.5rem;
+        padding: 8px;
+        color: #666;
+      }
+
+      .poster-popup-close:hover {
+        background: #e9ecef;
+        color: #333;
+      }
+
+      .poster-slide {
+        padding: 15px;
+      }
+    }
+
+    /* Extra small mobile optimization */
+    @media (max-width: 480px) {
+      .poster-carousel {
+        height: 65vh;
+        max-height: 550px;
+        background: transparent;
+      }
+
+      .poster-link img {
+        max-height: 60vh;
+        max-width: 85vw;
+      }
+
+      .poster-carousel-btn {
+        display: none;
+      }
+
+      .poster-dots {
+        bottom: 12px;
+        gap: 6px;
+      }
+
+      .poster-dots .dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      .poster-carousel-btn:hover {
+        background: #f8f9fa;
+        border-color: #dee2e6;
+      }
+
+      .poster-prev {
+        left: 8px;
+      }
+
+      .poster-next {
+        right: 8px;
+      }
+
+      .poster-popup-header {
         padding: 15px 20px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
       }
 
       .poster-popup-header h3 {
         font-size: 1.2rem;
+        color: #333;
+      }
+
+      .poster-popup-close {
+        color: #666;
+      }
+
+      .poster-popup-close:hover {
+        background: #e9ecef;
+        color: #333;
       }
     }
 
@@ -1815,7 +1899,7 @@
     <div class="poster-popup-overlay" id="posterPopup">
       <div class="poster-popup-container">
         <div class="poster-popup-header">
-          <h3>AMIMUN'26 Committees</h3>
+          <h3>AMIMUN'26 Cash Prizes</h3>
           <button class="poster-popup-close" id="closePosterPopup">
             <i class="fas fa-times"></i>
           </button>
@@ -1844,6 +1928,11 @@
           <button class="poster-carousel-btn poster-next" id="posterNext">
             <i class="fas fa-chevron-right"></i>
           </button>
+          <div class="poster-dots" aria-label="Poster carousel dots">
+            <span class="dot active" aria-label="Poster 1"></span>
+            <span class="dot" aria-label="Poster 2"></span>
+            <span class="dot" aria-label="Poster 3"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -2036,7 +2125,7 @@
         const posterTrack = document.getElementById("posterTrack");
         const prevBtn = document.getElementById("posterPrev");
         const nextBtn = document.getElementById("posterNext");
-        const dots = document.querySelectorAll(".dot");
+        const dots = posterPopup.querySelectorAll(".poster-dots .dot");
         
         let currentSlide = 0;
         const totalSlides = 3;

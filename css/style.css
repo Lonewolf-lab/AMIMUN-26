@@ -155,6 +155,8 @@
     border-bottom: none; /* ensure no border line */
     padding: 15px 0;
     transition: all 0.3s ease;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    
   }  
   
   .navbar .container {
@@ -207,6 +209,25 @@
   .nav-link.active::after {
     width: 100%;
   }
+  /* Navbar overlay state (on video) */
+.navbar.overlay {
+  background: transparent !important;
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+/* Optional: slightly tighter padding when overlayed */
+.navbar.overlay {
+  padding: 12px 0;
+}
+.navbar.overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.1)
+  );
+  backdrop-filter: blur(10px);
+}
   
   .dropdown-menu {
     position: absolute;
@@ -1609,4 +1630,16 @@
     section:first-of-type {
         padding-top: 80px;
     }
+}
+body {
+  padding-top: 0;
+}
+
+.navbar {
+  height: 80px;
+}
+
+
+body.video-active {
+  padding-top: 0;
 }
