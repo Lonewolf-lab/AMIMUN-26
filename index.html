@@ -1089,9 +1089,12 @@
     <section
       class="countdown-section"
       style="
-        background: linear-gradient(135deg, #001f54, #00308f);
+        background-image: url('images/home/Counter_bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         color: white;
-        padding: 30px 0;
+        padding: 60px 0;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -1102,16 +1105,16 @@
         border-bottom: 3px solid #ffc107;
       "
     >
-      <div class="container" style="max-width: 480px; margin: 0 auto">
+      <div class="container" style="max-width: 480px; margin: 0 auto; position: relative; z-index: 1;">
         <h2
           style="
             font-size: 1.8rem;
             margin-bottom: 15px;
             color: white;
-            font-weight: 700;
+            font-weight: 900;
             text-decoration: none !important;
             border-bottom: none !important;
-            text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
           "
         >
           AMIMUN'26 STARTS IN:
@@ -1121,20 +1124,20 @@
             font-size: 1.2rem;
             margin: 20px 0 30px;
             color: white;
-            font-weight: 500;
+            font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 193, 7, 0.15);
+            background: rgba(255, 255, 255, 0.1);
             display: inline-block;
             padding: 10px 20px;
             border-radius: 50px;
-            border: 2px solid rgba(255, 193, 7, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
           "
         >
           <i
             class="far fa-calendar-alt"
-            style="margin-right: 10px; color: #ffc107"
+            style="margin-right: 10px; color: white"
           ></i>
           January 16-18, 2026
         </p>
@@ -1144,32 +1147,32 @@
           style="
             display: flex;
             justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            max-width: 480px; /* reduced max-width */
+            gap: 20px;
+            flex-wrap: nowrap;
+            max-width: 600px;
             margin: 0 auto;
           "
         >
           <div
           class="countdown-item"
           style="
-            background: rgba(255, 193, 7, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             padding: 15px 10px;
             border-radius: 10px;
             min-width: 100px;
             backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 193, 7, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
           "
         >
           <div
             class="countdown-number"
             id="days"
             style="
-              font-size: 2.2rem;
-              font-weight: 700;
+              font-size: 2.8rem;
+              font-weight: 950;
               margin-bottom: 5px;
-              color: #ffc107;
-              text-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
+              color: white;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             "
           >
             00
@@ -1190,23 +1193,23 @@
         <div
           class="countdown-item"
           style="
-            background: rgba(255, 193, 7, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             padding: 15px 10px;
             border-radius: 10px;
             min-width: 100px;
             backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 193, 7, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
           "
         >
           <div
             class="countdown-number"
             id="hours"
             style="
-              font-size: 2.2rem;
-              font-weight: 700;
+              font-size: 2.8rem;
+              font-weight: 950;
               margin-bottom: 5px;
-              color: #ffc107;
-              text-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
+              color: white;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             "
           >
             00
@@ -1227,23 +1230,23 @@
         <div
           class="countdown-item"
           style="
-            background: rgba(255, 193, 7, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             padding: 15px 10px;
             border-radius: 10px;
             min-width: 100px;
             backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 193, 7, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
           "
         >
           <div
             class="countdown-number"
             id="minutes"
             style="
-              font-size: 2.2rem;
-              font-weight: 700;
+              font-size: 2.8rem;
+              font-weight: 950;
               margin-bottom: 5px;
-              color: #ffc107;
-              text-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
+              color: white;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             "
           >
             00
@@ -1264,23 +1267,23 @@
         <div
           class="countdown-item"
           style="
-            background: rgba(255, 193, 7, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             padding: 15px 10px;
             border-radius: 10px;
             min-width: 100px;
             backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 193, 7, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
           "
         >
           <div
             class="countdown-number"
             id="seconds"
             style="
-              font-size: 2.2rem;
-              font-weight: 700;
+              font-size: 2.8rem;
+              font-weight: 950;
               margin-bottom: 5px;
-              color: #ffc107;
-              text-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
+              color: white;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             "
           >
             00
@@ -1353,7 +1356,7 @@
                 <p
                   style="
                     margin: 0;
-                    font-weight: 600;
+                    font-weight: 800;
                     color: #001f54;
                     font-size: 1.1rem;
                   "
