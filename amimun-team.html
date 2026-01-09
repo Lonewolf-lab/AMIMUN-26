@@ -182,38 +182,7 @@
             box-shadow: 0 20px 50px rgba(0, 51, 102, 0.25);
         }
 
-        /* Tooltip styling */
-        .bento-item::before {
-            content: attr(data-team);
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, rgba(0, 31, 84, 0.95), rgba(3, 64, 120, 0.95));
-            color: #FFD700;
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 10;
-            pointer-events: none;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 31, 84, 0.3);
-        }
-
-        .bento-item:hover::before {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%);
-        }
-
+        
         .bento-inner {
             position: relative;
             z-index: 1;
@@ -243,6 +212,52 @@
 
         .bento-item:hover .card-body::after {
             opacity: 1;
+        }
+
+        /* Chronicles-style overlay */
+        .bento-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(135, 206, 250, 0.9) 0%, rgba(173, 216, 230, 0.6) 40%, transparent 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .bento-item:hover .bento-overlay {
+            opacity: 1;
+        }
+
+        .bento-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .bento-category {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            font-weight: 400;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+            color: #FFD700;
+        }
+
+        .bento-item:hover .bento-title,
+        .bento-item:hover .bento-category {
+            transform: translateY(0);
         }
 
         .card-body img {
@@ -315,22 +330,33 @@
                 font-size: 2rem;
             }
 
-            .bento-item::before {
-                font-size: 0.85rem;
-                padding: 8px 14px;
-                bottom: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: #FFD700;
-                white-space: nowrap;
+            .bento-overlay {
+                padding: 0.8rem;
             }
 
+            .bento-title {
+                font-size: 1rem;
+            }
+            
             .bento-item:hover {
                 transform: translateY(-5px);
             }
 
             .bento-item:hover .card-body img {
                 transform: scale(1.05);
+            }
+
+            /* Fix for last row - make it a grid column layout on mobile */
+            .bento-grid > div[style*="grid-column: 1 / -1"] {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .bento-grid > div[style*="grid-column: 1 / -1"] .bento-item {
+                width: 100% !important;
+                max-width: none !important;
+                flex: none !important;
             }
         }
 
@@ -384,17 +410,14 @@
                 box-shadow: 0 6px 20px rgba(0, 51, 102, 0.15);
             }
 
-            .bento-item::before {
-                font-size: 0.75rem;
-                padding: 6px 12px;
-                border-radius: 20px;
-                bottom: 8px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: #FFD700;
-                white-space: nowrap;
+            .bento-overlay {
+                padding: 0.6rem;
             }
 
+            .bento-title {
+                font-size: 0.9rem;
+            }
+            
             .bento-item:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 12px 30px rgba(0, 51, 102, 0.3);
@@ -407,9 +430,8 @@
 
             /* Mobile specific fix for last row */
             .bento-grid > div[style*="grid-column: 1 / -1"] {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
+                display: grid !important;
+                grid-template-columns: 1fr !important;
                 gap: 0.8rem !important;
             }
 
@@ -427,12 +449,26 @@
             .bento-grid > div[style*="grid-column: 1 / -1"] .card-body img {
                 height: 100% !important;
             }
+
+            .bento-grid > div[style*="grid-column: 1 / -1"] .bento-overlay {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+            }
         }
 
         /* Mobile footer positioning */
+        @media (max-width: 600px) {
+            .team-section {
+                padding: 80px 0 250px;
+            }
+        }
+        
         @media (max-width: 480px) {
-            .footer {
-                margin-top: 160px !important;
+            .team-section {
+                padding: 40px 0 300px;
             }
         }
 
@@ -561,6 +597,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/USG_WebOps.JPG" alt="Web Ops" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Web Ops</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -569,6 +608,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/OC_PHOTO_Combined.JPG" alt="The AMIMUN Team" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">The AMIMUN Team</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -577,6 +619,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/UCDA_Hospitality.JPG" alt="Hospitality" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Hospitality</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -586,6 +631,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/UDG_Operations.JPG" alt="Operations" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Operations</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -594,6 +642,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/FacultyOC_Combined.JPG" alt="The Root of AMIMUN" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">The Root of AMIMUN</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -602,6 +653,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/UDG_Marketing.JPG" alt="Marketing and Promotions" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Marketing and Promotions</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -611,6 +665,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/USG_PR Media.JPG" alt="PR Media" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">PR Media</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -618,7 +675,10 @@
             <article class="bento-item bento-item--wide" data-team="Core Secretariat">
                 <div class="bento-inner">
                     <div class="card-body">
-                        <img src="images/amimun-team/" alt="Core Secretariat" />
+                        <img src="images/amimun-team/core-secretariat.JPG" alt="Core Secretariat" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Core Secretariat</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -627,6 +687,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/USG_InternationalOutreach.JPG" alt="International Outreach" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">International Outreach</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -636,6 +699,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/USG_DelegateAffairs.JPG" alt="Delegate Affairs" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Delegate Affairs</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -644,6 +710,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/UCDC_InternationalPress.JPG" alt="International Press" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">International Press</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -652,6 +721,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/USG_Logistics.JPG" alt="Logistics" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Logistics</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -660,6 +732,9 @@
                 <div class="bento-inner">
                     <div class="card-body">
                         <img src="images/amimun-team/UDG_Design.JPG" alt="Design" />
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Design</h3>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -670,6 +745,9 @@
                     <div class="bento-inner">
                         <div class="card-body">
                             <img src="images/amimun-team/UCDC_CCM.JPG" alt="PR CCM" />
+                            <div class="bento-overlay">
+                                <h3 class="bento-title">PR CCM</h3>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -678,6 +756,9 @@
                     <div class="bento-inner">
                         <div class="card-body">
                             <img src="images/amimun-team/UDG_SPONSORSHIP.JPG" alt="Sponsorship" />
+                            <div class="bento-overlay">
+                                <h3 class="bento-title">Sponsorship</h3>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -686,6 +767,9 @@
                     <div class="bento-inner">
                         <div class="card-body">
                             <img src="images/amimun-team/UDG_Finance.JPG" alt="Finance" />
+                            <div class="bento-overlay">
+                                <h3 class="bento-title">Finance</h3>
+                            </div>
                         </div>
                     </div>
                 </article>
