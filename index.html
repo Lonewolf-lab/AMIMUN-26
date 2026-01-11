@@ -1127,7 +1127,7 @@
             font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.4);
             display: inline-block;
             padding: 10px 20px;
             border-radius: 50px;
@@ -1441,6 +1441,110 @@
       </div>
     </section>
 
+    <!-- AMIMUN'26 Sponsors and Collaborators Section -->
+    <section class="sponsors-section">
+      <div class="container">
+        <h2>AMIMUN'26 Sponsors and Collaborators</h2>
+        <div class="sponsors-carousel">
+          <div class="sponsors-track">
+            <!-- First Set of Sponsors -->
+            <div class="sponsor-card">
+              <img src="sponsors/chromebook.png" alt="Chromebook" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/polaroid.png" alt="Polaroid" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/shri-sarju.png" alt="Shri Sarju" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/dublieu.jpeg" alt="Dublieu" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/theglobaltimes.jpeg" alt="The global times" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/kallatya.jpeg" alt="kallatya" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/amity-radio.jpeg" alt="Amity Radio" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/ayouthveda.png" alt="A Youth Veda" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/chhatra-sansad.png" alt="chhatra sansad" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/betelguese.jpeg" alt="betelguese" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/tycoon-global.jpeg" alt="tycoon global" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/MaltMUN.png" alt="Matla MUN" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/NUMUN.jpeg" alt="NUMUN japan" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/Indonesia, UNEJ MUN .jpg" alt="UNEJMUN Indonesia" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/Brazil MUN.png" alt="Brazil MUN" />
+            </div>
+            
+            <!-- Duplicated Set for Seamless Loop -->
+            <div class="sponsor-card">
+              <img src="sponsors/chromebook.png" alt="Chromebook" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/polaroid.png" alt="Polaroid" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/shri-sarju.png" alt="Shri Sarju" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/dublieu.jpeg" alt="Dublieu" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/theglobaltimes.jpeg" alt="The global times" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/kallatya.jpeg" alt="kallatya" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/amity-radio.jpeg" alt="Amity Radio" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/ayouthveda.png" alt="A Youth Veda" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/chhatra-sansad.png" alt="chhatra sansad" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/betelguese.jpeg" alt="betelguese" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/tycoon-global.jpeg" alt="tycoon global" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/MaltMUN.png" alt="Matla MUN" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/NUMUN.jpeg" alt="NUMUN japan" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/Indonesia, UNEJ MUN .jpg" alt="UNEJMUN Indonesia" />
+            </div>
+            <div class="sponsor-card">
+              <img src="sponsors/Brazil MUN.png" alt="Brazil MUN" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Sponsors Section -->
     <section class="sponsors-section">
       <div class="container">
@@ -1461,7 +1565,7 @@
               <img src="sponsors/heforshe.jpg" alt="HeForShe" />
             </div>
             <div class="sponsor-card">
-              <img src="sponsors/helpageindia.png" alt="HelpAge India" />
+              <img src="sponsors/helpageindia.png" alt="helpageindia" />
             </div>
             <div class="sponsor-card">
               <img src="sponsors/nescafe.jpg" alt="Nescafé" />
@@ -1476,7 +1580,7 @@
               <img src="sponsors/global-compact.webp" alt="UN Global" />
             </div>
             <div class="sponsor-card">
-              <img src="sponsors/shahnaz.jpg" alt="Shahnaz" />
+              <img src="sponsors/chromebook.png" alt="Chromebook" />
             </div>
             <div class="sponsor-card">
               <img src="sponsors/unesco.jpg" alt="UNESCO" />
@@ -1493,7 +1597,7 @@
             <div class="sponsor-card">
               <img src="sponsors/UNacademic.png" alt="UN Academic Impact" />
             </div>
-
+            
             <!-- Duplicated Set for Seamless Loop -->
             <div class="sponsor-card">
               <img src="sponsors/amar ujala.png" alt="Amar Ujala" />
@@ -1986,56 +2090,58 @@
     <script src="js/script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const track = document.querySelector(".sponsors-track");
-        if (!track) return;
+        const tracks = document.querySelectorAll(".sponsors-track");
+        if (tracks.length === 0) return;
 
-        // Duplicate items for seamless loop
-        const children = Array.from(track.children);
-        children.forEach((child) => {
-          track.appendChild(child.cloneNode(true));
-        });
+        tracks.forEach((track, index) => {
+          // Duplicate items for seamless loop
+          const children = Array.from(track.children);
+          children.forEach((child) => {
+            track.appendChild(child.cloneNode(true));
+          });
 
-        let pos = 0;
-        let speed = 4.0;
-        let isHovered = false;
-        let lastTime = null;
-        let rafId = null;
+          let pos = 0;
+          let speed = 4.0;
+          let isHovered = false;
+          let lastTime = null;
+          let rafId = null;
 
-        function animate(time) {
-          if (!lastTime) lastTime = time;
-          const deltaTime = Math.min(100, time - lastTime);
-          lastTime = time;
+          function animate(time) {
+            if (!lastTime) lastTime = time;
+            const deltaTime = Math.min(100, time - lastTime);
+            lastTime = time;
 
-          if (!isHovered) {
-            pos += speed * (deltaTime / 16.67);
-            const halfTrackWidth = track.scrollWidth / 2;
-            if (pos >= halfTrackWidth) pos = 0;
-            track.style.transform = `translateX(${-pos}px)`;
+            if (!isHovered) {
+              pos += speed * (deltaTime / 16.67);
+              const halfTrackWidth = track.scrollWidth / 2;
+              if (pos >= halfTrackWidth) pos = 0;
+              track.style.transform = `translateX(${-pos}px)`;
+            }
+
+            rafId = requestAnimationFrame(animate);
           }
 
+          // Hover handlers
+          track.addEventListener("mouseenter", () => {
+            isHovered = true;
+          });
+
+          track.addEventListener("mouseleave", () => {
+            isHovered = false;
+            lastTime = performance.now();
+          });
+
+          // Start animation
           rafId = requestAnimationFrame(animate);
-        }
 
-        // Hover handlers
-        track.addEventListener("mouseenter", () => {
-          isHovered = true;
+          // Clean up
+          window.addEventListener("beforeunload", () => {
+            if (rafId) cancelAnimationFrame(rafId);
+          });
+
+          // Start animation loop
+          requestAnimationFrame(animate);
         });
-
-        track.addEventListener("mouseleave", () => {
-          isHovered = false;
-          lastTime = performance.now();
-        });
-
-        // Start animation
-        rafId = requestAnimationFrame(animate);
-
-        // Clean up
-        window.addEventListener("beforeunload", () => {
-          if (rafId) cancelAnimationFrame(rafId);
-        });
-
-        // Start animation loop
-        requestAnimationFrame(animate);
       });
 
       // Set the date we're counting down to (January 16, 2026 09:00:00)
