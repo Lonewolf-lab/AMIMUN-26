@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Committee - AMIMUN 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary: #001F54;
+            --secondary: #034078;
+            --accent: #1282A2;
+            --light: #F8F9FA;
+            --dark: #212529;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f9ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: rgba(0, 31, 84, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .logo span {
+            color: white;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .team-hero {
+            background: linear-gradient(135deg, #1451a0 0%, #114171 100%), 
+                        url('images/hero-bg-2.jpg') no-repeat center center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            margin-top: 80px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .team-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .team-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .team-hero p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin: 20px auto 0;
+            max-width: 700px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .oc-section {
+            padding: 10px 0 80px;
+            background: linear-gradient(135deg, #f5f9ff 0%, #ffffff 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .section-header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: #555;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .department-group {
+            margin-bottom: 50px;
+        }
+
+        .department-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 40px 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            position: relative;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px 10px;
+        }
+
+        .department-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20px;
+            width: 80px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .oc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Smaller flip card styles for OC */
+        .oc-card {
+            background: transparent;
+            border-radius: 10px;
+            height: 200px;
+            perspective: 1000px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .oc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 31, 84, 0.15);
+        }
+
+        .oc-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .oc-card-front,
+        .oc-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .oc-card-front {
+            background: white;
+            border-left: 4px solid var(--accent);
+        }
+
+        .oc-card-back {
+            background: rgba(18, 130, 162, 0.15);
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .member-initial {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 15px;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0 0 5px;
+            font-weight: 600;
+        }
+
+        .member-role {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        /* Back of card - image placeholder */
+        .member-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(18, 130, 162, 0.1) 0%, rgba(18, 130, 162, 0.2) 100%);
+            border-radius: 8px;
+            border: 2px solid rgba(40, 178, 216, 0.3);
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1200px) {
+            .oc-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Make navbar fixed and prevent logo overlap */
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                padding: 6px 0;
+                background: rgba(0, 31, 84, 0.98);
+            }
+
+            .navbar .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 100%;
+                padding: 0 15px;
+            }
+
+            .navbar .logo {
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-decoration: none;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 60%;
+            }
+
+            .navbar .logo img {
+                height: 30px;
+                width: auto;
+                margin-right: 8px;
+                flex-shrink: 0;
+            }
+
+            .navbar .logo span {
+                color: white;
+                font-size: 1.1rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+                flex-shrink: 0;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 52px;
+                flex-direction: column;
+                background: rgba(0, 31, 84, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                max-height: calc(100vh - 52px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .nav-link {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1rem;
+                padding: 8px 15px;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: white;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown-menu {
+                position: static;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                margin-top: 10px;
+                padding: 10px;
+                box-shadow: none;
+            }
+
+            .dropdown-menu li {
+                margin: 5px 0;
+            }
+
+            .dropdown-menu a {
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.9rem;
+                padding: 8px 12px;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+            }
+
+            .dropdown-menu a:hover {
+                color: white;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .team-hero {
+                height: 40vh;
+                margin-top: 90px;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .team-hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+
+            .team-hero p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin: 15px auto 0;
+                padding: 0 1rem;
+            }
+
+            .oc-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .department-title {
+                color: var(--primary);
+                font-size: 1.8rem;
+                margin: 40px 0 25px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #e0e0e0;
+                position: relative;
+                max-width: 1400px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 20px 10px;
+            }
+
+            .department-title::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 20px;
+                width: 80px;
+                height: 2px;
+                background: var(--accent);
+            }
+
+            .oc-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* Smaller flip card styles for OC */
+            .oc-card {
+                background: transparent;
+                border-radius: 10px;
+                height: 240px;
+                perspective: 1000px;
+                position: relative;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .oc-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0, 31, 84, 0.15);
+            }
+
+            .oc-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+
+            .oc-card-front,
+            .oc-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .oc-card-front {
+                background: white;
+                border-left: 4px solid var(--accent);
+            }
+
+            .oc-card-back {
+                background: rgba(18, 130, 162, 0.15);
+                transform: rotateY(180deg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .member-initial {
+                width: 50px;
+                height: 50px;
+                background: var(--primary);
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 0 auto 15px;
+            }
+
+            .member-name {
+                font-size: 1.2rem;
+                color: var(--primary);
+                margin: 0 0 5px;
+                font-weight: 600;
+            }
+
+            .member-role {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/home/Amity_University_logo.png" alt="Amity University Logo" style="height: 40px; width: auto; margin-right: 10px; vertical-align: middle;">
+                <span style="vertical-align: middle;">AMIMUN'26</span>
+            </a>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#about" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="why-amimun.html">Why AMIMUN</a></li>
+                        <li><a href="beyond-amimun.html">Beyond AMIMUN</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="chronicles.html">AMIMUN Chronicles</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#team" class="nav-link">Our Team <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="guiding-light.html">Our Guiding Light</a></li>
+                        <li><a href="advisory-board.html">Advisory Board</a></li>
+                        <li><a href="secretariat.html">Secretariat</a></li>
+                        <li><a href="organizing-committee.html">Organizing Committee</a></li>
+                        <li><a href="amimun-team.html">The AMIMUN team</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
+                <li class="nav-item"><a href="matrix.html" class="nav-link">Matrix</a></li>
+                <li class="nav-item"><a href="club.html" class="nav-link">Club</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="team-hero">
+        <div class="hero-content">
+            <h1 style="color: white;">Organizing Committee</h1>
+            <p style="color: white;">Meet the dedicated team members who work tirelessly behind the scenes to make AMIMUN 2026 a remarkable success.</p>
+        </div>
+    </header>
+
+    <!-- Organizing Committee Section -->
+    <section class="oc-section">
+        <!-- Web Operations -->
+        <div class="department-group">
+            <h2 class="department-title">Web Operations</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Siddhant Sinha</h3>
+                            <p class="member-role">Web Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AB</div>
+                            <h3 class="member-name">Aditya Bansal</h3>
+                            <p class="member-role">Web Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SJ</div>
+                            <h3 class="member-name">Sammyak Jain</h3>
+                            <p class="member-role">Web Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">PG</div>
+                            <h3 class="member-name">Panav Ghai</h3>
+                            <p class="member-role">Web Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delegate Affairs -->
+        <div class="department-group">
+            <h2 class="department-title">Delegate Affairs</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">EM</div>
+                            <h3 class="member-name">Ekta Mishra</h3>
+                            <p class="member-role">Delegate Affairs</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SN</div>
+                            <h3 class="member-name">Shubhankar Nayak</h3>
+                            <p class="member-role">Delegate Affairs</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SK</div>
+                            <h3 class="member-name">Shuchismita Kashyap</h3>
+                            <p class="member-role">Delegate Affairs</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">MR</div>
+                            <h3 class="member-name">Mahi Rawat</h3>
+                            <p class="member-role">Delegate Affairs</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AS</div>
+                            <h3 class="member-name">Ayati Shrivastava</h3>
+                            <p class="member-role">Delegate Affairs</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">PK</div>
+                            <h3 class="member-name">Prakhya Kalra</h3>
+                            <p class="member-role">Delegate Affairs</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Operations -->
+        <div class="department-group">
+            <h2 class="department-title">Operations</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AS</div>
+                            <h3 class="member-name">Aveer Saxena</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NJ</div>
+                            <h3 class="member-name">Nandini Jain</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NK</div>
+                            <h3 class="member-name">Nandhini Kundalia</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SG</div>
+                            <h3 class="member-name">Shivi Gupta</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">U</div>
+                            <h3 class="member-name">Upasana</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">D</div>
+                            <h3 class="member-name">Devishi</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">VS</div>
+                            <h3 class="member-name">Vansh Sharma</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KT</div>
+                            <h3 class="member-name">Kartik Tomar</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SP</div>
+                            <h3 class="member-name">Shivam Pokhriyal</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">PS</div>
+                            <h3 class="member-name">Pranav Sharma</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">HK</div>
+                            <h3 class="member-name">Hargun Kaur Luthra</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NC</div>
+                            <h3 class="member-name">Navya Chaprana</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AS</div>
+                            <h3 class="member-name">Abhiraj Singh</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NG</div>
+                            <h3 class="member-name">Navya Gattani</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">N</div>
+                            <h3 class="member-name">Navraj</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AY</div>
+                            <h3 class="member-name">Ayushman Yadav</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">DC</div>
+                            <h3 class="member-name">Diya Chauhan</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KT</div>
+                            <h3 class="member-name">Krish Tiwari</h3>
+                            <p class="member-role">Operations</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing and Promotions -->
+        <div class="department-group">
+            <h2 class="department-title">Marketing and Promotions</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">JK</div>
+                            <h3 class="member-name">Jashn Kulshrestha</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NG</div>
+                            <h3 class="member-name">Naitik Gugdodia</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Sara Sajid</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KB</div>
+                            <h3 class="member-name">Kamakshi Bagga</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">IS</div>
+                            <h3 class="member-name">Ishita Singh</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AS</div>
+                            <h3 class="member-name">Arnav Sharma</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">DV</div>
+                            <h3 class="member-name">Devanshi Verma</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AM</div>
+                            <h3 class="member-name">Apsar Maishan</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SB</div>
+                            <h3 class="member-name">Samaira Batra</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">TS</div>
+                            <h3 class="member-name">Tanushree Shukla</h3>
+                            <p class="member-role">Marketing and Promotions</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Outreach -->
+        <div class="department-group">
+            <h2 class="department-title">International Outreach</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">TD</div>
+                            <h3 class="member-name">Tvisha Dhingra</h3>
+                            <p class="member-role">International Outreach</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SK</div>
+                            <h3 class="member-name">Srishti Kanjilal</h3>
+                            <p class="member-role">International Outreach</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KG</div>
+                            <h3 class="member-name">Kunal Garg</h3>
+                            <p class="member-role">International Outreach</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SG</div>
+                            <h3 class="member-name">Suhani Gupta</h3>
+                            <p class="member-role">International Outreach</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logistics -->
+        <div class="department-group">
+            <h2 class="department-title">Logistics</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">DG</div>
+                            <h3 class="member-name">Divya Goel</h3>
+                            <p class="member-role">Logistics</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">VB</div>
+                            <h3 class="member-name">Vanini Bharadwaj</h3>
+                            <p class="member-role">Logistics</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SR</div>
+                            <h3 class="member-name">Shreya Rathee</h3>
+                            <p class="member-role">Logistics</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Shreya Singh</h3>
+                            <p class="member-role">Logistics</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SJ</div>
+                            <h3 class="member-name">Sanyam Jain</h3>
+                            <p class="member-role">Logistics</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design -->
+        <div class="department-group">
+            <h2 class="department-title">Design</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Sarabhi Sharma</h3>
+                            <p class="member-role">Design</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">PS</div>
+                            <h3 class="member-name">Praagya Srivastava</h3>
+                            <p class="member-role">Design</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">GS</div>
+                            <h3 class="member-name">Gargi Seth</h3>
+                            <p class="member-role">Design</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NM</div>
+                            <h3 class="member-name">Niharika Maheshwari</h3>
+                            <p class="member-role">Design</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">FF</div>
+                            <h3 class="member-name">Farwa Fatma</h3>
+                            <p class="member-role">Design</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Press -->
+        <div class="department-group">
+            <h2 class="department-title">International Press</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Shreem Soni</h3>
+                            <p class="member-role">International Press</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AG</div>
+                            <h3 class="member-name">Aachal Gupta</h3>
+                            <p class="member-role">International Press</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">IS</div>
+                            <h3 class="member-name">Iranpreet Singh</h3>
+                            <p class="member-role">International Press</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">FA</div>
+                            <h3 class="member-name">Fatimah Ahmed</h3>
+                            <p class="member-role">International Press</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SG</div>
+                            <h3 class="member-name">Sanchi Goyal</h3>
+                            <p class="member-role">International Press</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finance -->
+        <div class="department-group">
+            <h2 class="department-title">Finance</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">DS</div>
+                            <h3 class="member-name">Dhruv Sharma</h3>
+                            <p class="member-role">Finance</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SB</div>
+                            <h3 class="member-name">Soumil Basu</h3>
+                            <p class="member-role">Finance</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">VT</div>
+                            <h3 class="member-name">Vallabhaneni Teja</h3>
+                            <p class="member-role">Finance</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PR-CCM -->
+        <div class="department-group">
+            <h2 class="department-title">PR-CCM</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NA</div>
+                            <h3 class="member-name">Nandini Anand</h3>
+                            <p class="member-role">PR-CCM</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SG</div>
+                            <h3 class="member-name">Shreya Gupta</h3>
+                            <p class="member-role">PR-CCM</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="department-group">
+            <h2 class="department-title">Social Media</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">TW</div>
+                            <h3 class="member-name">Tanvi Walia</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SR</div>
+                            <h3 class="member-name">Suhani Rastogi</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AD</div>
+                            <h3 class="member-name">Anashuya Das</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">RB</div>
+                            <h3 class="member-name">Rizvi Bisht</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NT</div>
+                            <h3 class="member-name">Namrta Tiwari</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AG</div>
+                            <h3 class="member-name">Abhishek Guru</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">GV</div>
+                            <h3 class="member-name">Gaurika Vadhavan</h3>
+                            <p class="member-role">Social Media</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Content -->
+        <div class="department-group">
+            <h2 class="department-title">Media Content</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">PP</div>
+                            <h3 class="member-name">Pramit Parija</h3>
+                            <p class="member-role">Media Content</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">PS</div>
+                            <h3 class="member-name">Purnima Soni</h3>
+                            <p class="member-role">Media Content</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AL</div>
+                            <h3 class="member-name">Arjun Ligi Kumar</h3>
+                            <p class="member-role">Media Content</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SC</div>
+                            <h3 class="member-name">Sana Chaddha</h3>
+                            <p class="member-role">Media Content</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">MS</div>
+                            <h3 class="member-name">Mannat Soni Sinha</h3>
+                            <p class="member-role">Media Content</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sponsorship -->
+        <div class="department-group">
+            <h2 class="department-title">Sponsorship</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">RK</div>
+                            <h3 class="member-name">Rhythm Kaur</h3>
+                            <p class="member-role">Sponsorship</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SA</div>
+                            <h3 class="member-name">Sarthak Aggarwal</h3>
+                            <p class="member-role">Sponsorship</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">OS</div>
+                            <h3 class="member-name">Ojasvi Sharma</h3>
+                            <p class="member-role">Sponsorship</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AK</div>
+                            <h3 class="member-name">Aleena Kathuria</h3>
+                            <p class="member-role">Sponsorship</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Saksham Sharma</h3>
+                            <p class="member-role">Sponsorship</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospitality -->
+        <div class="department-group">
+            <h2 class="department-title">Hospitality</h2>
+            <div class="oc-grid">
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KB</div>
+                            <h3 class="member-name">Kshitij Bhatnagar</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KS</div>
+                            <h3 class="member-name">Kumar Saurav</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">KV</div>
+                            <h3 class="member-name">Kashish Vats</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SA</div>
+                            <h3 class="member-name">Siya Aggarwal</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SA</div>
+                            <h3 class="member-name">Sanica Aggarwal</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">JC</div>
+                            <h3 class="member-name">Jagrit Chugh</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">AJ</div>
+                            <h3 class="member-name">Anishka Jain</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">MD</div>
+                            <h3 class="member-name">Mahesh Dwivedi</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NK</div>
+                            <h3 class="member-name">Nishit Kumar</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">NS</div>
+                            <h3 class="member-name">Navya Sharma</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SP</div>
+                            <h3 class="member-name">Shreya Popli</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SS</div>
+                            <h3 class="member-name">Sukriti Sinha</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">SC</div>
+                            <h3 class="member-name">Shambhavi Chaturvedi</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">IS</div>
+                            <h3 class="member-name">Ira Singh</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">TS</div>
+                            <h3 class="member-name">Toashi Sharma</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oc-card">
+                    <div class="oc-card-inner">
+                        <div class="oc-card-front">
+                            <div class="member-initial">UM</div>
+                            <h3 class="member-name">Uday Munshani</h3>
+                            <p class="member-role">Hospitality</p>
+                        </div>
+                        <div class="oc-card-back">
+                            <div class="member-image-placeholder">Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About AMIMUN</h3>
+                    <p>AMIMUN is one of India's most prestigious Model United Nations conferences, bringing together young minds to engage in diplomacy and debate on global issues.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="why-amimun.html">About Us</a></li>
+                        <li><a href="secretariat.html">Our Team</a></li>
+                        <li><a href="committees.html">Committees</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: white;">&copy; 2026 AMIMUN. All Rights Reserved. | Designed by AMIMUN Web Operations Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Mobile tap functionality for card flipping - DISABLED
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const ocCards = document.querySelectorAll('.oc-card');
+        //     
+        //     ocCards.forEach(card => {
+        //         let isFlipped = false;
+        //         
+        //         // Add touch event for mobile - DISABLED
+        //         // card.addEventListener('touchend', function(e) {
+        //         //     e.preventDefault();
+        //         //     isFlipped = !isFlipped;
+        //         //     
+        //         //     const cardInner = card.querySelector('.oc-card-inner');
+        //         //     if (isFlipped) {
+        //         //         cardInner.style.transform = 'rotateY(180deg)';
+        //         //     } else {
+        //         //         cardInner.style.transform = 'rotateY(0deg)';
+        //         //     }
+        //         // });
+        //         
+        //         // Also add click event as fallback - DISABLED
+        //         // card.addEventListener('click', function(e) {
+        //         //     e.preventDefault();
+        //         //     isFlipped = !isFlipped;
+        //         //     
+        //         //     const cardInner = card.querySelector('.oc-card-inner');
+        //         //     if (isFlipped) {
+        //         //         cardInner.style.transform = 'rotateY(180deg)';
+        //         //     } else {
+        //         //         cardInner.style.transform = 'rotateY(0deg)';
+        //         //     }
+        //         // });
+        //     });
+        // });
+    </script>
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
