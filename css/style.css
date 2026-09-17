@@ -1160,12 +1160,12 @@
     max-width: 400px;
   }
   .core-team-contacts {
-    flex: 1 1 380px;
-    min-width: 280px;
-    max-width: 580px;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
     display: grid;
     gap: 18px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
   .team-contact {
     background: #fff;
@@ -1204,8 +1204,13 @@
       gap: 32px;
     }
     .core-team-contacts {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       max-width: 100%;
+    }
+  }
+  @media (max-width: 600px) {
+    .core-team-contacts {
+      grid-template-columns: 1fr;
     }
   }
   
@@ -1233,7 +1238,7 @@
   width: 100%;
   height: auto;
   border-radius: 50%;   
-  box-shadow: 0 0 40px rgba(18,130,162,0.35);
+  box-shadow: none;
 }
 
 
