@@ -212,6 +212,22 @@
                 margin: 0 10px 10px 0 !important;
             }
         }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .committees-container > .committee-section:last-of-type .committee-card:last-child {
+                grid-column: 1 / -1;
+                justify-self: center;
+                width: calc(50% - 15px);
+            }
+        }
+
+        @media (min-width: 993px) {
+            .committees-container > .committee-section:last-of-type .committee-card:nth-last-child(-n + 2) {
+                position: relative;
+                left: calc(50% + 15px);
+            }
+        }
+
         .committee-card-front h3 {
         color: var(--primary-color);
         transition: color 0.3s ease;
